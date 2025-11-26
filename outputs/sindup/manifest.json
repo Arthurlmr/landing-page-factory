@@ -1,0 +1,11 @@
+{
+  "project": "sindup",
+  "generated_at": "2025-11-26T13:56:05.828181",
+  "brief_file": "briefs/todo/sindup-brief.yaml",
+  "themes": [
+    "modern-dark",
+    "light-minimal",
+    "bold-gradient"
+  ],
+  "files": []
+}
