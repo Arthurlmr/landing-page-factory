@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindup - Veille concurrentielle intelligente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Theme colors */
+            --primary: #f06422;
+            --primary-light: #f29f4b;
+            --primary-rgb: 240, 100, 34;
+            --accent: #f29f4b;
+            --secondary: #0e1624;
+            
+            /* Background colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #f1f3f4;
+            --card-bg: #ffffff;
+            --card-border: rgba(0, 0, 0, 0.08);
+            --card-border-hover: rgba(0, 0, 0, 0.15);
+            
+            /* Text colors */
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-tertiary: #718096;
+            --text-muted: #a0aec0;
+            
+            /* Accent colors */
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #3b82f6;
+            
+            /* Spacing */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-7: 32px;
+            --space-8: 40px;
+            --space-9: 48px;
+            --space-10: 60px;
+            --space-11: 80px;
+            --space-12: 100px;
+            --space-13: 120px;
+            
+            /* Typography */
+            --font-light: 300;
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semibold: 600;
+            --font-bold: 700;
+            --font-extrabold: 800;
+            
+            /* Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            --radius-3xl: 24px;
+            --radius-full: 100px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 0 60px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Buttons */
+        .btn {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn-large {
+            padding: 18px 36px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .btn-xl {
+            padding: 20px 48px;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(var(--primary-rgb), 0.2);
+        }
+        
+        /* Gradient text */
+        .gradient {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 60px;
+        }
+        
+        .section-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            padding-top: 140px;
+        }
+        
+        .hero-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(var(--primary-rgb), 0.08);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-top: 8px;
+        }
+        
+        .hero-visual {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 24px;
+            height: 400px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Problems */
+        .problems-section {
+            background: #f8f9fa;
+        }
+        
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+        
+        .problem-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+        
+        .problem-card-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .problem-card-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .stat-highlight {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 48px;
+            border-radius: 24px;
+            color: white;
+        }
+        
+        .stat-highlight-value {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        
+        .stat-highlight-text {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* Solution */
+        .solution-section {
+            background: #ffffff;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        
+        .solution-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(var(--primary-rgb), 0.2);
+        }
+        
+        .solution-card-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .solution-card-badge {
+            background: rgba(var(--primary-rgb), 0.08);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        
+        .solution-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .solution-card-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        /* Features */
+        .features-section {
+            background: #f8f9fa;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            gap: 24px;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(var(--primary-rgb), 0.2);
+        }
+        
+        .feature-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent, var(--primary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .feature-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .feature-card-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Use Cases */
+        .usecases-section {
+            background: #ffffff;
+        }
+        
+        .usecases-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 60px;
+        }
+        
+        .usecase-tab {
+            padding: 16px 24px;
+            border: none;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .usecase-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-color: transparent;
+        }
+        
+        .usecase-content {
+            position: relative;
+        }
+        
+        .usecase-panel {
+            display: none;
+        }
+        
+        .usecase-panel.active {
+            display: block;
+        }
+        
+        .usecase-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .usecase-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+        
+        .usecase-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 32px;
+            color: var(--text-primary);
+        }
+        
+        .usecase-benefits {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .usecase-benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .usecase-benefit-check {
+            color: var(--success);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .usecase-visual {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 16px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .usecase-visual::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        /* Methodology */
+        .methodology-section {
+            background: #f8f9fa;
+        }
+        
+        .methodology-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            position: relative;
+        }
+        
+        .methodology-line {
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 0;
+        }
+        
+        .methodology-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .methodology-step-circle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.3);
+        }
+        
+        .methodology-step-number {
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .methodology-step-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .methodology-step-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Complementary */
+        .complementary-section {
+            background: #ffffff;
+        }
+        
+        .complementary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .complementary-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .complementary-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.02), rgba(var(--primary-rgb), 0.05));
+            border-color: rgba(var(--primary-rgb), 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .complementary-card-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .complementary-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .complementary-card-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .complementary-card-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+        
+        .complementary-card-link:hover {
+            gap: 12px;
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(var(--primary-rgb), 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .cta-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            margin-bottom: 40px;
+        }
+        
+        .cta-features {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 60px 40px 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        
+        .footer-copyright {
+            text-align: right;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav {
+                padding: 0 24px;
+            }
+            
+            .nav-links {
+                gap: 16px;
+            }
+            
+            section {
+                padding: 80px 24px;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .problems-grid,
+            .solution-grid,
+            .complementary-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .usecases-tabs {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .usecase-content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .methodology-steps {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .methodology-line {
+                display: none;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .cta-title {
+                font-size: 36px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 24px;
+            }
+            
+            .footer-copyright {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav {
+                padding: 0 20px;
+            }
+            
+            .nav-links .nav-link {
+                display: none;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            .hero {
+                padding-top: 120px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .usecases-tabs {
+                flex-direction: column;
+            }
+            
+            .cta-features {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">Sindup</a>
+        <div class="nav-links">
+            <a href="#solution" class="nav-link">Solutions</a>
+            <a href="#features" class="nav-link">Fonctionnalités</a>
+            <a href="#usecases" class="nav-link">Cas d'usage</a>
+            <a href="#" class="nav-link">Ressources</a>
+            <a href="#cta" class="btn btn-primary">Démarrer ma veille concurrentielle</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-on-scroll">
+                    <span class="hero-badge-dot"></span>
+                    <span class="hero-badge-text">Plateforme de veille stratégique n°1 en France</span>
+                </div>
+                
+                <h1 class="hero-title animate-on-scroll stagger-1">
+                    Anticipez les mouvements de vos <span class="gradient">concurrents</span>
+                </h1>
+                
+                <p class="hero-description animate-on-scroll stagger-2">
+                    Transformez 50+ millions de sources en insights stratégiques grâce à l'IA et l'intelligence collaborative. Détectez les signaux faibles avant vos concurrents.
+                </p>
+                
+                <div class="hero-buttons animate-on-scroll stagger-3">
+                    <a href="#cta" class="btn btn-primary btn-large">Démarrer ma veille concurrentielle</a>
+                    <button class="btn btn-secondary btn-large">Découvrir en 2 minutes</button>
+                </div>
+                
+                <div class="hero-stats animate-on-scroll stagger-4">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">50M+</div>
+                        <div class="hero-stat-label">Sources surveillées</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">500+</div>
+                        <div class="hero-stat-label">Entreprises clientes</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24/7</div>
+                        <div class="hero-stat-label">Surveillance continue</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual animate-on-scroll stagger-2"></div>
+        </div>
+    </section>
+
+    <!-- Problems -->
+    <section id="problems" class="problems-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">
+                    Pourquoi la veille concurrentielle est <span class="gradient">essentielle</span>
+                </h2>
+                <p class="section-description">
+                    Dans un marché en constante évolution, chaque information manquée peut coûter une opportunité stratégique.
+                </p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card animate-on-scroll stagger-1">
+                    <div class="problem-card-icon">⏱️</div>
+                    <h3 class="problem-card-title">Surcharge informationnelle</h3>
+                    <p class="problem-card-desc">Des milliers d'articles, posts et communiqués à analyser chaque jour. Impossible de tout suivre manuellement.</p>
+                </div>
+                
+                <div class="problem-card animate-on-scroll stagger-2">
+                    <div class="problem-card-icon">🎯</div>
+                    <h3 class="problem-card-title">Signaux faibles ignorés</h3>
+                    <p class="problem-card-desc">Les tendances émergentes passent inaperçues jusqu'à ce qu'il soit trop tard pour réagir.</p>
+                </div>
+                
+                <div class="problem-card animate-on-scroll stagger-3">
+                    <div class="problem-card-icon">📊</div>
+                    <h3 class="problem-card-title">Données dispersées</h3>
+                    <p class="problem-card-desc">Informations éparpillées sur des dizaines de sources différentes, sans vision centralisée.</p>
+                </div>
+                
+                <div class="problem-card animate-on-scroll stagger-4">
+                    <div class="problem-card-icon">⚡</div>
+                    <h3 class="problem-card-title">Réactivité insuffisante</h3>
+                    <p class="problem-card-desc">Vos concurrents agissent pendant que vous compilez encore vos données.</p>
+                </div>
+                
+                <div class="problem-card animate-on-scroll stagger-5">
+                    <div class="problem-card-icon">🔍</div>
+                    <h3 class="problem-card-title">Analyse superficielle</h3>
+                    <p class="problem-card-desc">Sans outils adaptés, l'analyse reste en surface et manque de profondeur stratégique.</p>
+                </div>
+                
+                <div class="problem-card animate-on-scroll stagger-6">
+                    <div class="problem-card-icon">💡</div>
+                    <h3 class="problem-card-title">Décisions mal informées</h3>
+                    <p class="problem-card-desc">Des choix stratégiques basés sur des intuitions plutôt que sur des données concrètes.</p>
+                </div>
+            </div>
+            
+            <div class="stat-highlight animate-on-scroll">
+                <div class="stat-highlight-value">89%</div>
+                <p class="stat-highlight-text">des entreprises qui pratiquent une veille concurrentielle active prennent de meilleures décisions stratégiques</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="solution-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Comment Sindup <span class="gradient">révolutionne</span> votre veille concurrentielle</h2>
+                <p class="section-description">
+                    Sindup est une plateforme 360° qui automatise la collecte et l'analyse de données concurrentielles. Notre IA, combinée à l'intelligence collective de vos équipes, transforme l'information brute en insights stratégiques actionnables.
+                </p>
+            </div>
+            
+            <div class="solution-grid">
+                <div class="solution-card animate-on-scroll stagger-1">
+                    <div class="solution-card-icon">🌐</div>
+                    <span class="solution-card-badge">50M+ sources</span>
+                    <h3 class="solution-card-title">Surveillance automatisée</h3>
+                    <p class="solution-card-desc">Plus de 50 millions de sources web surveillées en temps réel, 24h/24</p>
+                </div>
+                
+                <div class="solution-card animate-on-scroll stagger-2">
+                    <div class="solution-card-icon">🧠</div>
+                    <span class="solution-card-badge">IA avancée</span>
+                    <h3 class="solution-card-title">Analyse intelligente</h3>
+                    <p class="solution-card-desc">IA qui détecte les signaux faibles et tendances émergentes avant vos concurrents</p>
+                </div>
+                
+                <div class="solution-card animate-on-scroll stagger-3">
+                    <div class="solution-card-icon">📍</div>
+                    <span class="solution-card-badge">Vue unifiée</span>
+                    <h3 class="solution-card-title">Centralisation</h3>
+                    <p class="solution-card-desc">Toutes vos informations concurrentielles agrégées en un seul tableau de bord</p>
+                </div>
+                
+                <div class="solution-card animate-on-scroll stagger-4">
+                    <div class="solution-card-icon">🔔</div>
+                    <span class="solution-card-badge">Temps réel</span>
+                    <h3 class="solution-card-title">Alertes personnalisées</h3>
+                    <p class="solution-card-desc">Notifications en temps réel sur les mouvements critiques de vos concurrents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Des fonctionnalités pensées pour <span class="gradient">votre veille</span></h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll stagger-1">
+                    <div class="feature-card-icon" style="background: #f06422;">🔍</div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Surveillance multi-sources</h3>
+                        <p class="feature-card-desc">Suivi automatique des sites web, réseaux sociaux, presse et blogs de vos concurrents. Surveillez les lancements produits, communiqués et même les offres d'emploi.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-2">
+                    <div class="feature-card-icon" style="background: #f29f4b;">📊</div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Benchmark permanent</h3>
+                        <p class="feature-card-desc">Analyse comparative en temps réel de votre positionnement face à vos concurrents. Identifiez les forces et faiblesses de chaque acteur du marché.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-3">
+                    <div class="feature-card-icon" style="background: #28ca42;">📡</div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Détection des signaux faibles</h3>
+                        <p class="feature-card-desc">Notre IA repère les tendances émergentes avant qu'elles ne deviennent visibles. Anticipez les changements stratégiques de vos concurrents.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-4">
+                    <div class="feature-card-icon" style="background: #3b82f6;">⚡</div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Alertes intelligentes</h3>
+                        <p class="feature-card-desc">Notifications instantanées sur les événements critiques. Configurez des alertes personnalisées selon vos critères de surveillance.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-5">
+                    <div class="feature-card-icon" style="background: #8b5cf6;">📑</div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Rapports automatisés</h3>
+                        <p class="feature-card-desc">Génération automatique de rapports de veille concurrentielle. Synthèses hebdomadaires et mensuelles prêtes à partager avec vos équipes.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-6">
+                    <div class="feature-card-icon" style="background: #ec4899;">📈</div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Tableaux de bord interactifs</h3>
+                        <p class="feature-card-desc">Visualisation claire et intuitive de toutes vos données concurrentielles. Dashboards personnalisables par projet ou par concurrent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="usecases" class="usecases-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">La veille concurrentielle au service de <span class="gradient">toute l'entreprise</span></h2>
+            </div>
+            
+            <div class="usecases-tabs animate-on-scroll">
+                <button class="usecase-tab active" data-tab="0">
+                    <span>📊</span> Direction Marketing
+                </button>
+                <button class="usecase-tab" data-tab="1">
+                    <span>💼</span> Direction Commerciale
+                </button>
+                <button class="usecase-tab" data-tab="2">
+                    <span>🔬</span> R&D / Innovation
+                </button>
+                <button class="usecase-tab" data-tab="3">
+                    <span>🎯</span> Direction Générale
+                </button>
+            </div>
+            
+            <div class="usecase-content animate-on-scroll">
+                <div class="usecase-panel active" data-panel="0">
+                    <div class="usecase-content-grid">
+                        <div>
+                            <div class="usecase-icon">📊</div>
+                            <h3 class="usecase-title">Direction Marketing</h3>
+                            <ul class="usecase-benefits">
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Benchmark des stratégies marketing concurrentes
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Surveillance des campagnes et positionnements
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Adaptation rapide de votre propre stratégie
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary">Voir la démo</button>
+                        </div>
+                        <div class="usecase-visual"></div>
+                    </div>
+                </div>
+                
+                <div class="usecase-panel" data-panel="1">
+                    <div class="usecase-content-grid">
+                        <div>
+                            <div class="usecase-icon">💼</div>
+                            <h3 class="usecase-title">Direction Commerciale</h3>
+                            <ul class="usecase-benefits">
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Anticipation des offres et tarifs concurrents
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Identification de nouvelles opportunités de marché
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Arguments de vente face à la concurrence
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary">Voir la démo</button>
+                        </div>
+                        <div class="usecase-visual"></div>
+                    </div>
+                </div>
+                
+                <div class="usecase-panel" data-panel="2">
+                    <div class="usecase-content-grid">
+                        <div>
+                            <div class="usecase-icon">🔬</div>
+                            <h3 class="usecase-title">R&D / Innovation</h3>
+                            <ul class="usecase-benefits">
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Surveillance des innovations produits concurrentes
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Détection des tendances technologiques
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Anticipation des évolutions du marché
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary">Voir la démo</button>
+                        </div>
+                        <div class="usecase-visual"></div>
+                    </div>
+                </div>
+                
+                <div class="usecase-panel" data-panel="3">
+                    <div class="usecase-content-grid">
+                        <div>
+                            <div class="usecase-icon">🎯</div>
+                            <h3 class="usecase-title">Direction Générale</h3>
+                            <ul class="usecase-benefits">
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Vision globale du paysage concurrentiel
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Identification des nouveaux entrants potentiels
+                                </li>
+                                <li class="usecase-benefit">
+                                    <span class="usecase-benefit-check">✓</span>
+                                    Prise de décision stratégique éclairée
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary">Voir la démo</button>
+                        </div>
+                        <div class="usecase-visual"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology" class="methodology-section">
+        <div class="methodology-container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">4 étapes pour une veille concurrentielle efficace</h2>
+            </div>
+            
+            <div class="methodology-steps">
+                <div class="methodology-line"></div>
+                
+                <div class="methodology-step animate-on-scroll stagger-1">
+                    <div class="methodology-step-circle">
+                        <span class="methodology-step-number">01</span>
+                    </div>
+                    <h3 class="methodology-step-title">Définir vos concurrents</h3>
+                    <p class="methodology-step-desc">Configuration rapide des entreprises et marques à surveiller. Sélection des sources pertinentes.</p>
+                </div>
+                
+                <div class="methodology-step animate-on-scroll stagger-2">
+                    <div class="methodology-step-circle">
+                        <span class="methodology-step-number">02</span>
+                    </div>
+                    <h3 class="methodology-step-title">Configurer vos alertes</h3>
+                    <p class="methodology-step-desc">Paramétrage des critères de surveillance. Choix des mots-clés et thématiques prioritaires.</p>
+                </div>
+                
+                <div class="methodology-step animate-on-scroll stagger-3">
+                    <div class="methodology-step-circle">
+                        <span class="methodology-step-number">03</span>
+                    </div>
+                    <h3 class="methodology-step-title">Analyser les données</h3>
+                    <p class="methodology-step-desc">Consultation des insights dans vos dashboards. Identification des informations stratégiques.</p>
+                </div>
+                
+                <div class="methodology-step animate-on-scroll stagger-4">
+                    <div class="methodology-step-circle">
+                        <span class="methodology-step-number">04</span>
+                    </div>
+                    <h3 class="methodology-step-title">Partager et agir</h3>
+                    <p class="methodology-step-desc">Diffusion des insights aux équipes concernées. Prise de décision basée sur des données concrètes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complementary -->
+    <section id="complementary" class="complementary-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Complétez votre veille avec <span class="gradient">d'autres typologies</span></h2>
+            </div>
+            
+            <div class="complementary-grid">
+                <div class="complementary-card animate-on-scroll stagger-1">
+                    <div class="complementary-card-icon">⚡</div>
+                    <h3 class="complementary-card-title">Veille technologique</h3>
+                    <p class="complementary-card-desc">Anticipez les innovations qui transforment votre secteur</p>
+                    <a href="#" class="complementary-card-link">
+                        En savoir plus <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="complementary-card animate-on-scroll stagger-2">
+                    <div class="complementary-card-icon">🏢</div>
+                    <h3 class="complementary-card-title">Veille sectorielle</h3>
+                    <p class="complementary-card-desc">Maîtrisez les dynamiques de votre industrie</p>
+                    <a href="#" class="complementary-card-link">
+                        En savoir plus <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="complementary-card animate-on-scroll stagger-3">
+                    <div class="complementary-card-icon">⚖️</div>
+                    <h3 class="complementary-card-title">Veille réglementaire</h3>
+                    <p class="complementary-card-desc">Restez conforme aux évolutions légales</p>
+                    <a href="#" class="complementary-card-link">
+                        En savoir plus <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="complementary-card animate-on-scroll stagger-4">
+                    <div class="complementary-card-icon">📈</div>
+                    <h3 class="complementary-card-title">Veille marketing</h3>
+                    <p class="complementary-card-desc">Décryptez les stratégies de vos concurrents</p>
+                    <a href="#" class="complementary-card-link">
+                        En savoir plus <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="complementary-card animate-on-scroll stagger-5">
+                    <div class="complementary-card-icon">💬</div>
+                    <h3 class="complementary-card-title">Veille e-réputation</h3>
+                    <p class="complementary-card-desc">Protégez et valorisez votre image de marque</p>
+                    <a href="#" class="complementary-card-link">
+                        En savoir plus <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="complementary-card animate-on-scroll stagger-6">
+                    <div class="complementary-card-icon">🤝</div>
+                    <h3 class="complementary-card-title">Veille commerciale</h3>
+                    <p class="complementary-card-desc">Identifiez les opportunités business</p>
+                    <a href="#" class="complementary-card-link">
+                        En savoir plus <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta-section">
+        <div class="cta-bg-glow"></div>
+        <div class="cta-container">
+            <h2 class="cta-title animate-on-scroll">
+                Prêt à transformer votre <span class="gradient">veille concurrentielle</span> ?
+            </h2>
+            <p class="cta-description animate-on-scroll stagger-1">
+                Rejoignez les 500+ entreprises qui font confiance à Sindup pour anticiper les mouvements de leurs concurrents et prendre des décisions stratégiques éclairées.
+            </p>
+            
+            <div class="cta-buttons animate-on-scroll stagger-2">
+                <a href="#" class="btn btn-primary btn-xl">Demander une démo gratuite</a>
+            </div>
+            
+            <p class="cta-features animate-on-scroll stagger-3">
+                ✓ Démo personnalisée
+                ✓ Sans engagement
+                ✓ Configuration en 24h
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <a href="#" class="footer-logo">Sindup</a>
+            <div class="footer-links">
+                <a href="#" class="footer-link">À propos</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Carrières</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Mentions légales</a>
+            </div>
+            <div class="footer-copyright">
+                © 2024 Sindup. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tab switching for use cases
+        const tabs = document.querySelectorAll('.usecase-tab');
+        const panels = document.querySelectorAll('.usecase-panel');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and panels
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding panel
+                tab.classList.add('active');
+                panels[index].classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.card, .problem-card, .solution-card, .feature-card, .complementary-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = this.style.transform || 'translateY(-4px)';
+            });
+        });
+    </script>
+</body>
+</html>
