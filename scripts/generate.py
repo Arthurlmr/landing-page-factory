@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Landing Page Factory - Generation Script
+Landing Page Factory - Generation Script (with Streaming)
 
 This script reads a brief YAML file and generates multiple landing page
-variants using the Claude API.
+variants using the Claude API with streaming for long requests.
 
 Usage:
     python generate.py briefs/todo/project-brief.yaml
@@ -20,7 +20,7 @@ from datetime import datetime
 
 # Configuration
 CLAUDE_MODEL = "claude-sonnet-4-20250514"
-MAX_TOKENS = 64000
+MAX_TOKENS = 32000
 FACTORY_PATH = Path("factory")
 OUTPUT_PATH = Path("outputs")
 
@@ -67,7 +67,7 @@ def load_factory_context() -> str:
 
 
 def generate_landing_page(client: anthropic.Anthropic, brief: dict, theme: str, factory_context: str) -> str:
-    """Generate a single landing page variant using Claude."""
+    """Generate a single landing page variant using Claude with streaming."""
     
     brief_yaml = yaml.dump(brief, allow_unicode=True, default_flow_style=False)
     
@@ -104,19 +104,26 @@ IMPORTANT:
 - Ajoute les animations scroll avec Intersection Observer
 - Le résultat doit être production-ready
 
-Réponds UNIQUEMENT avec le code HTML complet, sans explications ni markdown autour.
+Réponds UNIQUEMENT avec le code HTML complet, sans explications ni markdown autour. Commence directement par <!DOCTYPE html>
 """
 
-    message = client.messages.create(
+    # Use streaming for long requests
+    response_text = ""
+    
+    with client.messages.stream(
         model=CLAUDE_MODEL,
         max_tokens=MAX_TOKENS,
         messages=[
             {"role": "user", "content": prompt}
         ]
-    )
+    ) as stream:
+        for text in stream.text_stream:
+            response_text += text
+            # Print progress dots
+            if len(response_text) % 1000 == 0:
+                print(".", end="", flush=True)
     
-    # Extract HTML from response
-    response_text = message.content[0].text
+    print()  # New line after progress dots
     
     # Clean up if wrapped in markdown code blocks
     if response_text.startswith("```html"):
@@ -164,6 +171,17 @@ def process_brief(brief_path: str):
         
         try:
             html_content = generate_landing_page(client, brief, theme, factory_context)
+            
+            # Validate we got HTML
+            if not html_content.strip().startswith("<!DOCTYPE") and not html_content.strip().startswith("<html"):
+                # Try to find HTML in the response
+                doctype_pos = html_content.find("<!DOCTYPE")
+                if doctype_pos != -1:
+                    html_content = html_content[doctype_pos:]
+                else:
+                    html_pos = html_content.find("<html")
+                    if html_pos != -1:
+                        html_content = html_content[html_pos:]
             
             # Save file
             output_file = output_dir / f"{project_name}-{theme}.html"
