@@ -1,0 +1,329 @@
+# ============================================
+# LANDING PAGE FACTORY - BRIEF TEMPLATE
+# ============================================
+# 
+# Instructions:
+# 1. Copy this file to briefs/todo/
+# 2. Rename it to {your-project-name}-brief.yaml
+# 3. Fill in all required fields
+# 4. Push to GitHub → Landing pages will be auto-generated
+#
+# ============================================
+
+# Project metadata
+project:
+  name: "project-name"                    # Used for output folder name (kebab-case)
+  language: "fr"                          # fr, en, es, de, etc.
+  output_format: "html"                   # html, react, vue
+  
+# ============================================
+# BRAND IDENTITY
+# ============================================
+brand:
+  name: "Company Name"
+  tagline: "Your tagline here"
+  
+  colors:
+    primary: "#f06422"                    # Main brand color (CTAs, accents)
+    primary_light: "#f29f4b"              # Lighter variant (gradients, hovers)
+    secondary: "#0e1624"                  # Secondary color (backgrounds, text)
+    
+  fonts:
+    heading: "Outfit"                     # Google Font name for headings
+    body: "Outfit"                        # Google Font name for body text
+    
+  # Optional: provide logo URL or leave empty for text logo
+  logo:
+    url: ""                               # URL to logo image (SVG preferred)
+    width: "120px"
+    
+# ============================================
+# GENERATION PREFERENCES
+# ============================================
+preferences:
+  themes:
+    - "modern-dark"                       # Dark theme (Stripe-like)
+    - "light-minimal"                     # Light clean theme
+    - "bold-gradient"                     # Vibrant gradients
+    # - "corporate-clean"                 # Professional enterprise
+    
+  animations: "full"                      # full, subtle, minimal, none
+  
+  sections:
+    - "hero"
+    - "problems"
+    - "solution"
+    - "features"
+    - "use_cases"
+    - "methodology"
+    - "complementary"                     # Optional
+    - "cta"
+    - "footer"
+    
+# ============================================
+# CONTENT
+# ============================================
+content:
+  
+  # ------------------------------------------
+  # HERO SECTION
+  # ------------------------------------------
+  hero:
+    badge: "Plateforme leader en France"
+    title: "Anticipez les mouvements de vos"
+    highlight: "concurrents"              # Word with gradient/accent color
+    description: >
+      Transformez 50+ millions de sources en insights stratégiques 
+      grâce à l'IA et l'intelligence collaborative. 
+      Détectez les signaux faibles avant vos concurrents.
+    cta_primary: "Démarrer maintenant"
+    cta_secondary: "Voir la démo"
+    
+    stats:
+      - value: "50M+"
+        label: "Sources surveillées"
+      - value: "500+"
+        label: "Entreprises clientes"
+      - value: "24/7"
+        label: "Surveillance continue"
+        
+  # ------------------------------------------
+  # PROBLEMS SECTION
+  # ------------------------------------------
+  problems:
+    title: "Pourquoi c'est"
+    highlight: "essentiel"
+    description: >
+      Dans un marché en constante évolution, chaque information 
+      manquée peut coûter une opportunité stratégique.
+      
+    items:
+      - icon: "⏱️"
+        title: "Surcharge informationnelle"
+        description: "Des milliers d'articles à analyser chaque jour. Impossible de tout suivre manuellement."
+        
+      - icon: "🎯"
+        title: "Signaux faibles ignorés"
+        description: "Les tendances émergentes passent inaperçues jusqu'à ce qu'il soit trop tard."
+        
+      - icon: "📊"
+        title: "Données dispersées"
+        description: "Informations éparpillées sur des dizaines de sources différentes."
+        
+      - icon: "⚡"
+        title: "Réactivité insuffisante"
+        description: "Vos concurrents agissent pendant que vous compilez vos données."
+        
+      - icon: "🔍"
+        title: "Analyse superficielle"
+        description: "Sans outils adaptés, l'analyse manque de profondeur stratégique."
+        
+      - icon: "💡"
+        title: "Décisions mal informées"
+        description: "Des choix stratégiques basés sur des intuitions plutôt que des données."
+        
+    stat:
+      value: "89%"
+      text: "des entreprises qui pratiquent une veille active prennent de meilleures décisions"
+      
+  # ------------------------------------------
+  # SOLUTION SECTION
+  # ------------------------------------------
+  solution:
+    title: "Comment nous"
+    highlight: "révolutionnons"
+    title_end: "votre quotidien"
+    description: >
+      Une plateforme 360° qui automatise la collecte et l'analyse. 
+      Notre IA, combinée à l'intelligence collective, transforme 
+      l'information brute en insights actionnables.
+      
+    items:
+      - icon: "🌐"
+        badge: "50M+ sources"
+        title: "Surveillance automatisée"
+        description: "Plus de 50 millions de sources web surveillées en temps réel, 24h/24"
+        
+      - icon: "🧠"
+        badge: "IA avancée"
+        title: "Analyse intelligente"
+        description: "IA qui détecte les signaux faibles et tendances émergentes"
+        
+      - icon: "📍"
+        badge: "Vue unifiée"
+        title: "Centralisation"
+        description: "Toutes vos informations agrégées en un seul tableau de bord"
+        
+      - icon: "🔔"
+        badge: "Temps réel"
+        title: "Alertes personnalisées"
+        description: "Notifications en temps réel sur les mouvements critiques"
+        
+  # ------------------------------------------
+  # FEATURES SECTION
+  # ------------------------------------------
+  features:
+    title: "Des fonctionnalités pensées pour"
+    highlight: "vous"
+    
+    items:
+      - icon: "🔍"
+        title: "Surveillance multi-sources"
+        description: "Suivi automatique des sites web, réseaux sociaux, presse et blogs. Surveillez les lancements, communiqués et offres d'emploi."
+        color: "#f06422"
+        
+      - icon: "📊"
+        title: "Benchmark permanent"
+        description: "Analyse comparative en temps réel de votre positionnement. Identifiez les forces et faiblesses de chaque acteur."
+        color: "#f29f4b"
+        
+      - icon: "📡"
+        title: "Détection des signaux faibles"
+        description: "Notre IA repère les tendances émergentes avant qu'elles ne deviennent visibles. Anticipez les changements."
+        color: "#28ca42"
+        
+      - icon: "⚡"
+        title: "Alertes intelligentes"
+        description: "Notifications instantanées sur les événements critiques. Alertes personnalisables selon vos critères."
+        color: "#3b82f6"
+        
+      - icon: "📑"
+        title: "Rapports automatisés"
+        description: "Génération automatique de rapports. Synthèses hebdomadaires et mensuelles prêtes à partager."
+        color: "#8b5cf6"
+        
+      - icon: "📈"
+        title: "Tableaux de bord interactifs"
+        description: "Visualisation claire de toutes vos données. Dashboards personnalisables par projet."
+        color: "#ec4899"
+        
+  # ------------------------------------------
+  # USE CASES SECTION
+  # ------------------------------------------
+  use_cases:
+    title: "Au service de"
+    highlight: "toute l'entreprise"
+    
+    tabs:
+      - icon: "📊"
+        title: "Direction Marketing"
+        benefits:
+          - "Benchmark des stratégies marketing concurrentes"
+          - "Surveillance des campagnes et positionnements"
+          - "Adaptation rapide de votre propre stratégie"
+          
+      - icon: "💼"
+        title: "Direction Commerciale"
+        benefits:
+          - "Anticipation des offres et tarifs concurrents"
+          - "Identification de nouvelles opportunités de marché"
+          - "Arguments de vente face à la concurrence"
+          
+      - icon: "🔬"
+        title: "R&D / Innovation"
+        benefits:
+          - "Surveillance des innovations produits concurrentes"
+          - "Détection des tendances technologiques"
+          - "Anticipation des évolutions du marché"
+          
+      - icon: "🎯"
+        title: "Direction Générale"
+        benefits:
+          - "Vision globale du paysage concurrentiel"
+          - "Identification des nouveaux entrants potentiels"
+          - "Prise de décision stratégique éclairée"
+          
+  # ------------------------------------------
+  # METHODOLOGY SECTION
+  # ------------------------------------------
+  methodology:
+    title: "4 étapes"
+    highlight: ""
+    title_end: "pour réussir"
+    
+    steps:
+      - number: "01"
+        title: "Définir vos cibles"
+        description: "Configuration rapide des éléments à surveiller. Sélection des sources pertinentes."
+        
+      - number: "02"
+        title: "Configurer vos alertes"
+        description: "Paramétrage des critères de surveillance. Choix des mots-clés prioritaires."
+        
+      - number: "03"
+        title: "Analyser les données"
+        description: "Consultation des insights dans vos dashboards. Identification des informations clés."
+        
+      - number: "04"
+        title: "Partager et agir"
+        description: "Diffusion des insights aux équipes. Décisions basées sur des données concrètes."
+        
+  # ------------------------------------------
+  # COMPLEMENTARY SECTION (Optional)
+  # ------------------------------------------
+  complementary:
+    title: "Complétez avec"
+    highlight: "d'autres solutions"
+    
+    items:
+      - icon: "⚡"
+        title: "Veille technologique"
+        description: "Anticipez les innovations qui transforment votre secteur"
+        link: "#"
+        
+      - icon: "🏢"
+        title: "Veille sectorielle"
+        description: "Maîtrisez les dynamiques de votre industrie"
+        link: "#"
+        
+      - icon: "⚖️"
+        title: "Veille réglementaire"
+        description: "Restez conforme aux évolutions légales"
+        link: "#"
+        
+      - icon: "📈"
+        title: "Veille marketing"
+        description: "Décryptez les stratégies de vos concurrents"
+        link: "#"
+        
+      - icon: "💬"
+        title: "Veille e-réputation"
+        description: "Protégez et valorisez votre image de marque"
+        link: "#"
+        
+      - icon: "🤝"
+        title: "Veille commerciale"
+        description: "Identifiez les opportunités business"
+        link: "#"
+        
+  # ------------------------------------------
+  # FINAL CTA SECTION
+  # ------------------------------------------
+  cta:
+    title: "Prêt à transformer votre"
+    highlight: "quotidien"
+    description: >
+      Rejoignez les 500+ entreprises qui nous font confiance 
+      pour prendre des décisions stratégiques éclairées.
+    button: "Demander une démo gratuite"
+    features:
+      - "Démo personnalisée"
+      - "Sans engagement"
+      - "Configuration en 24h"
+      
+  # ------------------------------------------
+  # FOOTER
+  # ------------------------------------------
+  footer:
+    links:
+      - text: "À propos"
+        url: "#"
+      - text: "Blog"
+        url: "#"
+      - text: "Carrières"
+        url: "#"
+      - text: "Contact"
+        url: "#"
+      - text: "Mentions légales"
+        url: "#"
+    copyright: "© 2024 {brand.name}. Tous droits réservés."

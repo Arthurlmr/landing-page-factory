@@ -1,0 +1,134 @@
+{
+  "name": "corporate-clean",
+  "displayName": "Corporate Clean",
+  "description": "Professional and trustworthy. Grid-based layout, conservative colors, refined typography. For enterprise B2B.",
+  
+  "colors": {
+    "background": {
+      "primary": "#ffffff",
+      "secondary": "#f5f7fa",
+      "tertiary": "#edf2f7",
+      "card": "#ffffff",
+      "cardHover": "#ffffff",
+      "cardBorder": "#e2e8f0",
+      "cardBorderHover": "#cbd5e0"
+    },
+    "text": {
+      "primary": "#1a202c",
+      "secondary": "#4a5568",
+      "tertiary": "#718096",
+      "muted": "#a0aec0"
+    },
+    "accent": {
+      "success": "#38a169",
+      "warning": "#dd6b20",
+      "error": "#e53e3e",
+      "info": "#3182ce"
+    }
+  },
+  
+  "effects": {
+    "glassBackground": "rgba(255, 255, 255, 0.95)",
+    "glassBlur": "8px",
+    "glowPrimary": "none",
+    "glowPrimaryHover": "none",
+    "gridPattern": "none",
+    "orbOpacity": 0
+  },
+  
+  "typography": {
+    "fontFamily": {
+      "heading": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+      "body": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+      "mono": "'IBM Plex Mono', monospace"
+    },
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+    "heroTitleSize": "56px",
+    "heroTitleWeight": "800",
+    "letterSpacingTitle": "-1px"
+  },
+  
+  "components": {
+    "navigation": {
+      "background": "#ffffff",
+      "backdropFilter": "none",
+      "borderBottom": "1px solid #e2e8f0",
+      "boxShadow": "0 1px 3px rgba(0, 0, 0, 0.05)"
+    },
+    "button": {
+      "primary": {
+        "background": "var(--primary)",
+        "color": "#ffffff",
+        "shadow": "0 1px 3px rgba(0, 0, 0, 0.1)",
+        "shadowHover": "0 4px 12px rgba(0, 0, 0, 0.15)",
+        "borderRadius": "8px"
+      },
+      "secondary": {
+        "background": "#ffffff",
+        "border": "1px solid #e2e8f0",
+        "color": "#4a5568",
+        "backgroundHover": "#f5f7fa"
+      }
+    },
+    "card": {
+      "background": "#ffffff",
+      "border": "1px solid #e2e8f0",
+      "borderRadius": "12px",
+      "shadow": "0 1px 3px rgba(0, 0, 0, 0.04)",
+      "hoverTransform": "translateY(-4px)",
+      "hoverShadow": "0 8px 24px rgba(0, 0, 0, 0.08)",
+      "hoverBorder": "#cbd5e0"
+    },
+    "badge": {
+      "background": "#edf2f7",
+      "border": "none",
+      "color": "var(--primary)"
+    }
+  },
+  
+  "animations": {
+    "level": "minimal",
+    "backgroundOrbs": false,
+    "gridPattern": false,
+    "floatingElements": false,
+    "scrollAnimations": true,
+    "hoverEffects": true,
+    "pulseGlow": false
+  },
+  
+  "sections": {
+    "hero": {
+      "minHeight": "90vh",
+      "backgroundGradient": "linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%)"
+    },
+    "alternating": true,
+    "sectionBackgrounds": [
+      "#ffffff",
+      "#f5f7fa",
+      "#ffffff",
+      "#f5f7fa"
+    ]
+  },
+  
+  "layout": {
+    "maxWidth": "1140px",
+    "gridGap": "32px",
+    "sectionPadding": {
+      "desktop": "100px 60px",
+      "tablet": "80px 40px",
+      "mobile": "60px 24px"
+    }
+  },
+  
+  "customCSS": {
+    "heroVisual": {
+      "border": "1px solid #e2e8f0",
+      "boxShadow": "0 20px 60px rgba(0, 0, 0, 0.08)",
+      "borderRadius": "12px"
+    },
+    "sectionHeader": {
+      "maxWidth": "700px",
+      "marginBottom": "60px"
+    }
+  }
+}

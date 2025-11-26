@@ -1,0 +1,139 @@
+{
+  "name": "bold-gradient",
+  "displayName": "Bold Gradient",
+  "description": "Vibrant gradients, bold typography, dynamic shapes. High energy and modern feel.",
+  
+  "colors": {
+    "background": {
+      "primary": "#0f0f1a",
+      "secondary": "#1a1a2e",
+      "tertiary": "#16213e",
+      "card": "rgba(255, 255, 255, 0.05)",
+      "cardHover": "rgba(255, 255, 255, 0.08)",
+      "cardBorder": "rgba(255, 255, 255, 0.08)",
+      "cardBorderHover": "rgba(255, 255, 255, 0.15)"
+    },
+    "text": {
+      "primary": "#ffffff",
+      "secondary": "rgba(255, 255, 255, 0.75)",
+      "tertiary": "rgba(255, 255, 255, 0.55)",
+      "muted": "rgba(255, 255, 255, 0.35)"
+    },
+    "accent": {
+      "success": "#00d9a5",
+      "warning": "#ffc107",
+      "error": "#ff4d6d",
+      "info": "#00b4d8"
+    },
+    "gradients": {
+      "primary": "linear-gradient(135deg, var(--primary), var(--accent))",
+      "hero": "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
+      "cta": "linear-gradient(135deg, var(--primary), #ff6b6b)",
+      "mesh": "radial-gradient(at 40% 20%, hsla(280, 100%, 70%, 0.3) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.2) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355, 100%, 70%, 0.2) 0px, transparent 50%)"
+    }
+  },
+  
+  "effects": {
+    "glassBackground": "rgba(15, 15, 26, 0.8)",
+    "glassBlur": "24px",
+    "glowPrimary": "0 0 60px rgba(var(--primary-rgb), 0.4)",
+    "glowPrimaryHover": "0 0 100px rgba(var(--primary-rgb), 0.6)",
+    "gridPattern": "none",
+    "meshGradient": true,
+    "orbOpacity": 0.25
+  },
+  
+  "typography": {
+    "fontFamily": {
+      "heading": "'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif",
+      "body": "'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+      "mono": "'JetBrains Mono', monospace"
+    },
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap",
+    "heroTitleSize": "76px",
+    "heroTitleWeight": "700",
+    "letterSpacingTitle": "-3px"
+  },
+  
+  "components": {
+    "navigation": {
+      "background": "rgba(15, 15, 26, 0.8)",
+      "backdropFilter": "blur(24px)",
+      "borderBottom": "1px solid rgba(255, 255, 255, 0.08)"
+    },
+    "button": {
+      "primary": {
+        "background": "linear-gradient(135deg, var(--primary), var(--accent))",
+        "color": "#ffffff",
+        "shadow": "0 8px 32px rgba(var(--primary-rgb), 0.4)",
+        "shadowHover": "0 16px 48px rgba(var(--primary-rgb), 0.5)",
+        "borderRadius": "14px"
+      },
+      "secondary": {
+        "background": "transparent",
+        "border": "2px solid rgba(255, 255, 255, 0.2)",
+        "color": "#ffffff",
+        "backgroundHover": "rgba(255, 255, 255, 0.05)"
+      }
+    },
+    "card": {
+      "background": "rgba(255, 255, 255, 0.04)",
+      "border": "1px solid rgba(255, 255, 255, 0.08)",
+      "borderRadius": "24px",
+      "hoverTransform": "translateY(-12px) scale(1.02)",
+      "hoverBackground": "rgba(255, 255, 255, 0.08)",
+      "hoverBorder": "rgba(var(--primary-rgb), 0.4)",
+      "hoverGlow": "0 20px 60px rgba(var(--primary-rgb), 0.2)"
+    },
+    "badge": {
+      "background": "linear-gradient(135deg, rgba(var(--primary-rgb), 0.2), rgba(var(--accent-rgb), 0.2))",
+      "border": "1px solid rgba(var(--primary-rgb), 0.3)",
+      "color": "#ffffff"
+    }
+  },
+  
+  "animations": {
+    "level": "full",
+    "backgroundOrbs": true,
+    "gridPattern": false,
+    "meshGradient": true,
+    "floatingElements": true,
+    "scrollAnimations": true,
+    "hoverEffects": true,
+    "pulseGlow": true,
+    "morphingShapes": true
+  },
+  
+  "sections": {
+    "hero": {
+      "minHeight": "100vh",
+      "backgroundGradient": "linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%)",
+      "meshOverlay": true
+    },
+    "alternating": true,
+    "sectionBackgrounds": [
+      "#0f0f1a",
+      "linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%)",
+      "#0f0f1a",
+      "linear-gradient(180deg, #1a1a2e 0%, #16213e 100%)"
+    ]
+  },
+  
+  "decorativeElements": {
+    "blobs": true,
+    "gradientOrbs": [
+      {
+        "position": "top-right",
+        "colors": ["#667eea", "#764ba2"],
+        "size": "600px",
+        "blur": "100px"
+      },
+      {
+        "position": "bottom-left",
+        "colors": ["#f093fb", "#f5576c"],
+        "size": "500px",
+        "blur": "120px"
+      }
+    ]
+  }
+}

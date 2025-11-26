@@ -1,0 +1,107 @@
+{
+  "name": "modern-dark",
+  "displayName": "Modern Dark",
+  "description": "Dark theme with subtle glows and glassmorphism. Inspired by Stripe, Linear, Vercel.",
+  
+  "colors": {
+    "background": {
+      "primary": "#0e1624",
+      "secondary": "#131d2e",
+      "tertiary": "#0a111c",
+      "card": "rgba(255, 255, 255, 0.03)",
+      "cardHover": "rgba(255, 255, 255, 0.06)",
+      "cardBorder": "rgba(255, 255, 255, 0.06)",
+      "cardBorderHover": "rgba(255, 255, 255, 0.12)"
+    },
+    "text": {
+      "primary": "#ffffff",
+      "secondary": "rgba(255, 255, 255, 0.7)",
+      "tertiary": "rgba(255, 255, 255, 0.5)",
+      "muted": "rgba(255, 255, 255, 0.4)"
+    },
+    "accent": {
+      "success": "#28ca42",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    }
+  },
+  
+  "effects": {
+    "glassBackground": "rgba(14, 22, 36, 0.85)",
+    "glassBlur": "20px",
+    "glowPrimary": "0 0 40px rgba(var(--primary-rgb), 0.3)",
+    "glowPrimaryHover": "0 0 80px rgba(var(--primary-rgb), 0.5)",
+    "gridPattern": "linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)",
+    "gridSize": "60px",
+    "orbOpacity": 0.15
+  },
+  
+  "typography": {
+    "fontFamily": {
+      "heading": "'Outfit', -apple-system, BlinkMacSystemFont, sans-serif",
+      "body": "'Outfit', -apple-system, BlinkMacSystemFont, sans-serif",
+      "mono": "'JetBrains Mono', 'Fira Code', monospace"
+    },
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+  },
+  
+  "components": {
+    "navigation": {
+      "background": "rgba(14, 22, 36, 0.85)",
+      "backdropFilter": "blur(20px)",
+      "borderBottom": "1px solid rgba(255, 255, 255, 0.05)"
+    },
+    "button": {
+      "primary": {
+        "background": "linear-gradient(135deg, var(--primary), var(--accent))",
+        "color": "#ffffff",
+        "shadow": "0 4px 20px rgba(var(--primary-rgb), 0.3)",
+        "shadowHover": "0 8px 30px rgba(var(--primary-rgb), 0.4)"
+      },
+      "secondary": {
+        "background": "rgba(255, 255, 255, 0.05)",
+        "border": "1px solid rgba(255, 255, 255, 0.15)",
+        "color": "#ffffff",
+        "backgroundHover": "rgba(255, 255, 255, 0.1)"
+      }
+    },
+    "card": {
+      "background": "rgba(255, 255, 255, 0.03)",
+      "border": "1px solid rgba(255, 255, 255, 0.06)",
+      "borderRadius": "20px",
+      "hoverTransform": "translateY(-8px)",
+      "hoverBackground": "rgba(var(--primary-rgb), 0.08)",
+      "hoverBorder": "rgba(var(--primary-rgb), 0.2)"
+    },
+    "badge": {
+      "background": "rgba(var(--primary-rgb), 0.1)",
+      "border": "1px solid rgba(var(--primary-rgb), 0.3)",
+      "color": "var(--accent)"
+    }
+  },
+  
+  "animations": {
+    "level": "full",
+    "backgroundOrbs": true,
+    "gridPattern": true,
+    "floatingElements": true,
+    "scrollAnimations": true,
+    "hoverEffects": true,
+    "pulseGlow": true
+  },
+  
+  "sections": {
+    "hero": {
+      "minHeight": "100vh",
+      "backgroundGradient": "linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%)"
+    },
+    "alternating": true,
+    "sectionBackgrounds": [
+      "var(--bg-primary)",
+      "linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%)",
+      "var(--bg-primary)",
+      "linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%)"
+    ]
+  }
+}

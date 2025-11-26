@@ -1,0 +1,122 @@
+name: Generate Landing Pages
+
+on:
+  push:
+    paths:
+      - 'briefs/todo/*.yaml'
+      - 'briefs/todo/*.yml'
+  workflow_dispatch:
+    inputs:
+      brief_file:
+        description: 'Brief file name (in briefs/todo/)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install anthropic pyyaml requests
+          
+      - name: Detect changed briefs
+        id: detect
+        run: |
+          if [ -n "${{ github.event.inputs.brief_file }}" ]; then
+            echo "briefs=briefs/todo/${{ github.event.inputs.brief_file }}" >> $GITHUB_OUTPUT
+          else
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'briefs/todo/*.yaml' 'briefs/todo/*.yml' | tr '\n' ' ')
+            if [ -z "$CHANGED" ]; then
+              # Check for new files
+              CHANGED=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'briefs/todo/*.yaml' 'briefs/todo/*.yml' | tr '\n' ' ')
+            fi
+            echo "briefs=$CHANGED" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Generate landing pages
+        if: steps.detect.outputs.briefs != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          python scripts/generate.py ${{ steps.detect.outputs.briefs }}
+          
+      - name: Move processed briefs
+        if: steps.detect.outputs.briefs != ''
+        run: |
+          for brief in ${{ steps.detect.outputs.briefs }}; do
+            if [ -f "$brief" ]; then
+              filename=$(basename "$brief")
+              mv "$brief" "briefs/done/$filename"
+            fi
+          done
+          
+      - name: Commit generated files
+        if: steps.detect.outputs.briefs != ''
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add outputs/
+          git add briefs/done/
+          git commit -m "🚀 Generated landing pages from brief" || exit 0
+          git push
+          
+      - name: Send Slack notification
+        if: steps.detect.outputs.briefs != '' && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          # Read the generated files list
+          GENERATED_FILES=$(find outputs/ -name "*.html" -mmin -5 | tr '\n' ', ')
+          PROJECT_NAME=$(echo "${{ steps.detect.outputs.briefs }}" | sed 's/briefs\/todo\///' | sed 's/-brief.yaml//')
+          
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{
+              \"blocks\": [
+                {
+                  \"type\": \"header\",
+                  \"text\": {
+                    \"type\": \"plain_text\",
+                    \"text\": \"🚀 Landing Pages générées!\",
+                    \"emoji\": true
+                  }
+                },
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Projet:* ${PROJECT_NAME}\n*Fichiers générés:*\n${GENERATED_FILES}\"
+                  }
+                },
+                {
+                  \"type\": \"actions\",
+                  \"elements\": [
+                    {
+                      \"type\": \"button\",
+                      \"text\": {
+                        \"type\": \"plain_text\",
+                        \"text\": \"📂 Voir sur GitHub\",
+                        \"emoji\": true
+                      },
+                      \"url\": \"${{ github.server_url }}/${{ github.repository }}/tree/main/outputs/${PROJECT_NAME}\"
+                    }
+                  ]
+                }
+              ]
+            }" \
+            $SLACK_WEBHOOK_URL

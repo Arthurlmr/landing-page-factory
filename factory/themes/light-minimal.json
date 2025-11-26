@@ -1,0 +1,115 @@
+{
+  "name": "light-minimal",
+  "displayName": "Light Minimal",
+  "description": "Clean white theme with generous whitespace and subtle shadows. Inspired by Notion, Linear light mode.",
+  
+  "colors": {
+    "background": {
+      "primary": "#ffffff",
+      "secondary": "#f8f9fa",
+      "tertiary": "#f1f3f4",
+      "card": "#ffffff",
+      "cardHover": "#ffffff",
+      "cardBorder": "rgba(0, 0, 0, 0.08)",
+      "cardBorderHover": "rgba(0, 0, 0, 0.15)"
+    },
+    "text": {
+      "primary": "#1a1a1a",
+      "secondary": "#4a5568",
+      "tertiary": "#718096",
+      "muted": "#a0aec0"
+    },
+    "accent": {
+      "success": "#10b981",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    }
+  },
+  
+  "effects": {
+    "glassBackground": "rgba(255, 255, 255, 0.9)",
+    "glassBlur": "12px",
+    "glowPrimary": "none",
+    "glowPrimaryHover": "none",
+    "gridPattern": "none",
+    "gridSize": "0",
+    "orbOpacity": 0.05
+  },
+  
+  "typography": {
+    "fontFamily": {
+      "heading": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+      "body": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+      "mono": "'JetBrains Mono', 'Fira Code', monospace"
+    },
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+  },
+  
+  "components": {
+    "navigation": {
+      "background": "rgba(255, 255, 255, 0.9)",
+      "backdropFilter": "blur(12px)",
+      "borderBottom": "1px solid rgba(0, 0, 0, 0.06)"
+    },
+    "button": {
+      "primary": {
+        "background": "var(--primary)",
+        "color": "#ffffff",
+        "shadow": "0 2px 8px rgba(0, 0, 0, 0.1)",
+        "shadowHover": "0 4px 16px rgba(0, 0, 0, 0.15)"
+      },
+      "secondary": {
+        "background": "#ffffff",
+        "border": "1px solid rgba(0, 0, 0, 0.15)",
+        "color": "var(--text-primary)",
+        "backgroundHover": "#f8f9fa"
+      }
+    },
+    "card": {
+      "background": "#ffffff",
+      "border": "1px solid rgba(0, 0, 0, 0.08)",
+      "borderRadius": "16px",
+      "shadow": "0 1px 3px rgba(0, 0, 0, 0.04)",
+      "hoverTransform": "translateY(-4px)",
+      "hoverShadow": "0 12px 40px rgba(0, 0, 0, 0.08)",
+      "hoverBorder": "rgba(var(--primary-rgb), 0.2)"
+    },
+    "badge": {
+      "background": "rgba(var(--primary-rgb), 0.08)",
+      "border": "none",
+      "color": "var(--primary)"
+    }
+  },
+  
+  "animations": {
+    "level": "subtle",
+    "backgroundOrbs": false,
+    "gridPattern": false,
+    "floatingElements": false,
+    "scrollAnimations": true,
+    "hoverEffects": true,
+    "pulseGlow": false
+  },
+  
+  "sections": {
+    "hero": {
+      "minHeight": "100vh",
+      "backgroundGradient": "linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)"
+    },
+    "alternating": true,
+    "sectionBackgrounds": [
+      "#ffffff",
+      "#f8f9fa",
+      "#ffffff",
+      "#f8f9fa"
+    ]
+  },
+  
+  "customCSS": {
+    "heroVisual": {
+      "border": "1px solid rgba(0, 0, 0, 0.1)",
+      "boxShadow": "0 24px 80px rgba(0, 0, 0, 0.1)"
+    }
+  }
+}
