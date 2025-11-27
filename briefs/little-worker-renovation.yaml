@@ -1,0 +1,80 @@
+project:
+  name: "little-worker-renovation"
+  lang: "fr"
+
+brand:
+  company_name: "Little Worker"
+  logo_url: "https://www.littleworker.fr/wp-content/themes/littleworker/assets/img/logo.svg"
+  colors:
+    primary: "#C18523"
+    secondary: "#003F3A"
+  fonts:
+    heading: "Playfair Display"
+    body: "Lato"
+
+content:
+  nav:
+    items:
+      - "Réalisations"
+      - "Concept"
+      - "Zones d'intervention"
+      - "Témoignages"
+    cta_text: "Obtenir un devis"
+    cta_link: "#devis"
+  
+  hero:
+    badge: "Rénovation immobilière clé en main"
+    title: "Rénovez votre appartement en toute sérénité et sans retard"
+    subtitle: "Un accompagnement complet de la conception aux travaux. Plus de 200 chantiers livrés avec succès à Paris, Lyon, Bordeaux et Nantes."
+    cta_primary:
+      text: "Estimer mon projet"
+      link: "#devis"
+    cta_secondary:
+      text: "Voir nos réalisations"
+      link: "#portfolio"
+    image: "https://images.unsplash.com/photo-1484154218962-a1c002085d2f?auto=format&fit=crop&q=80"
+  
+  logos:
+    headline: "Déjà plus de 200 projets livrés dans vos villes"
+    items:
+      - "Paris"
+      - "Lyon"
+      - "Bordeaux"
+      - "Nantes"
+  
+  features:
+    tagline: "POURQUOI NOUS CHOISIR"
+    headline: "La rénovation simplifiée, sans les mauvaises surprises"
+    description: "Nous transformons l'expérience des travaux grâce à une gestion rigoureuse, transparente et sécurisée."
+    items:
+      - icon: "users"
+        title: "Interlocuteur unique dédié"
+        description: "Un pilote de chantier gère tout pour vous : coordination des artisans, planning et conformité technique."
+      - icon: "check"
+        title: "Budget maîtrisé et transparent"
+        description: "Des devis clairs de 5 000€ à 20 000€+. Le prix signé est le prix final, sans coûts cachés."
+      - icon: "lock"
+        title: "Garantie décennale incluse"
+        description: "Tous nos travaux sont couverts par une assurance décennale à jour pour votre totale tranquillité."
+      - icon: "search"
+        title: "Audit et diagnostic expert"
+        description: "Analyse technique approfondie avant travaux pour optimiser votre espace et sécuriser le projet."
+      - icon: "star"
+        title: "Artisans rigoureusement sélectionnés"
+        description: "Nous ne travaillons qu'avec des professionnels testés et approuvés pour la qualité de leurs finitions."
+      - icon: "refresh"
+        title: "Suivi de chantier régulier"
+        description: "Restez informé de l'avancée des travaux avec des points d'étape clairs et réguliers."
+  
+  cta:
+    headline: "Prêt à transformer votre intérieur ?"
+    description: "Recevez une estimation précise pour votre projet de rénovation à Paris, Lyon, Bordeaux ou Nantes."
+    button_text: "Lancer mon projet maintenant"
+    button_link: "#devis"
+  
+  footer:
+    copyright: "© 2025 Little Worker. Tous droits réservés."
+
+seo:
+  title: "Little Worker - Rénovation d'appartement clé en main garantie"
+  description: "Service expert de rénovation immobilière. Interlocuteur unique, garantie décennale et budget respecté. Interventions à Paris, Lyon, Bordeaux et Nantes."
