@@ -1,5 +1,8 @@
 name: Generate Landing Page
 
+permissions:
+  contents: write
+
 on:
   push:
     paths:
