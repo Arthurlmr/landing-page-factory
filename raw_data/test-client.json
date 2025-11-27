@@ -1,0 +1,69 @@
+{
+  "client_name": "exemple-client",
+  "url": "https://exemple.com",
+  "firecrawl": {
+    "branding": {
+      "colorScheme": "dark",
+      "colors": {
+        "primary": "#ECF890",
+        "accent": "#C7B5F3",
+        "background": "#1A1B23",
+        "textPrimary": "#FAFAFA"
+      },
+      "typography": {
+        "fontFamilies": {
+          "heading": "Gasoek One",
+          "primary": "Poppins"
+        },
+        "fontSizes": {
+          "h1": "80px",
+          "h2": "48px",
+          "body": "16px"
+        }
+      },
+      "spacing": {
+        "borderRadius": "20px"
+      },
+      "components": {
+        "buttonPrimary": {
+          "background": "#ECF890",
+          "textColor": "#1A1B23",
+          "borderRadius": "100px"
+        }
+      },
+      "images": {
+        "logo": "https://exemple.com/logo.svg"
+      },
+      "personality": {
+        "tone": "professional"
+      }
+    }
+  },
+  "perplexity": "# Analyse Factuelle\n\n## Offres et Services\n- Service 1 : Description\n- Service 2 : Description\n\n## Proposition de valeur\nDescription de la proposition de valeur principale.\n\n## Cibles clients\n- TPE/PME\n- Startups\n\n## Éléments de preuve\n- 150 clients accompagnés\n- 98% satisfaction",
+  "gemini_search": {
+    "sector": "Marketing digital",
+    "company_summary": "Agence spécialisée en...",
+    "questions": [
+      {"question": "Quels sont les tarifs ?", "answer": "À partir de 490€/mois", "source": "site"},
+      {"question": "Quelle est la méthodologie ?", "answer": null, "source": null}
+    ]
+  },
+  "vision": {
+    "score": 68,
+    "strengths": [
+      "Proposition de valeur claire en H1",
+      "Éléments de réassurance visibles"
+    ],
+    "improvements": [
+      "CTA principal peu visible",
+      "Trop de texte dans le hero"
+    ],
+    "priority_advice": "Agrandir le bouton CTA et réduire le texte du hero"
+  },
+  "user_answers": {
+    "objective": "Générer des leads",
+    "target": "TPE-PME",
+    "tone": "Expert & rassurant",
+    "testimonials": "Oui"
+  }
+}
