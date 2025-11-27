@@ -1,0 +1,75 @@
+project:
+  name: "agence-assurance-bessines"
+  lang: "fr"
+
+brand:
+  company_name: "Assurance Mutuelle de Poitiers - Agence Bessines"
+  logo_url: ""
+  colors:
+    primary: "#6BC024"
+    secondary: "#0365A3"
+  fonts:
+    heading: "Open Sans"
+    body: "Open Sans"
+
+content:
+  nav:
+    items:
+      - "Accueil"
+      - "Particuliers"
+      - "Professionnels"
+      - "L'Agence"
+    cta_text: "Obtenir un devis"
+    cta_link: "#contact"
+  
+  hero:
+    badge: "Votre agence locale à Bessines (79)"
+    title: "Votre protection sur-mesure avec une équipe proche de vous"
+    subtitle: "Bénéficiez de l'expertise de 5 conseillers dédiés pour vos assurances auto, habitation et santé. Réactivité et écoute garanties."
+    cta_primary:
+      text: "Obtenir mon tarif"
+      link: "#devis"
+    cta_secondary:
+      text: "Nous rencontrer"
+      link: "#agence"
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80"
+  
+  logos:
+    headline: "Nos domaines d'intervention"
+    items:
+      - "Auto"
+      - "Habitation"
+      - "Santé"
+      - "Prévoyance"
+      - "Pro"
+  
+  features:
+    tagline: "POURQUOI NOUS CHOISIR"
+    headline: "Une assurance humaine et performante à Bessines"
+    description: "Arthur Le Mero et son équipe vous accompagnent à chaque étape de votre vie avec des solutions adaptées à vos besoins réels."
+    items:
+      - icon: "users"
+        title: "Équipe locale dédiée"
+        description: "Une équipe de 3 à 5 conseillers disponibles à l'agence Zone de la Mude pour un suivi personnalisé sans plateforme anonyme."
+      - icon: "search"
+        title: "Devis clair et rapide"
+        description: "Obtenez une estimation immédiate adaptée à votre budget, avec des offres compétitives démarrant entre 20€ et 50€."
+      - icon: "check"
+        title: "Garanties complètes"
+        description: "Assurance auto, complémentaire santé, habitation et accidents de la vie : une protection totale pour vous et vos proches."
+      - icon: "star"
+        title: "Confiance et proximité"
+        description: "La solidité d'un grand réseau mutualiste combinée à la proximité d'une agence à taille humaine reconnue localement."
+  
+  cta:
+    headline: "Passez nous voir à l'agence"
+    description: "Retrouvez-nous Avenue de la Rochelle à Bessines ou contactez-nous pour un bilan gratuit de vos assurances."
+    button_text: "Prendre rendez-vous"
+    button_link: "#contact"
+  
+  footer:
+    copyright: "© 2025 Assurance Mutuelle de Poitiers - Agence Arthur LE MERO."
+
+seo:
+  title: "Assurance Bessines - Agence Arthur Le Mero | Devis Auto Santé Habitation"
+  description: "Votre agence d'assurance à Bessines (79000). Arthur Le Mero et son équipe vous conseillent pour vos assurances particuliers et professionnels. Devis gratuit."
