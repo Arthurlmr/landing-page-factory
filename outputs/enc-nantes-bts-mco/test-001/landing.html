@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS MCO Nantes - Formation Commerce & Marketing | ENC</title>
+    <meta name="description" content="Intégrez le BTS Management Commercial Opérationnel de l'ENC Nantes. 100% de réussite, tarif accessible (2360€/an) et stages garantis. Candidatures ouvertes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1F2351;
+            --primary-rgb: 31, 35, 81;
+            --secondary: #CA223B;
+            --secondary-rgb: 202, 34, 59;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #f1f3f4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #ffffff;
+            
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-tertiary: #718096;
+            --text-muted: #a0aec0;
+            
+            --border-light: rgba(0, 0, 0, 0.08);
+            --border-medium: rgba(0, 0, 0, 0.15);
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 24px 80px rgba(0, 0, 0, 0.1);
+            
+            --space-4: 16px;
+            --space-6: 24px;
+            --space-8: 40px;
+            --space-10: 60px;
+            --space-12: 100px;
+            --space-13: 120px;
+            
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            
+            --font-heading: 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 60px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            border: 1px solid var(--border-medium);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .btn-large {
+            padding: 18px 36px;
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .btn-xl {
+            padding: 20px 48px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 60px 80px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(var(--primary-rgb), 0.08);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+        
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        
+        .hero-visual {
+            position: relative;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-2xl);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: var(--space-13) 60px;
+        }
+        
+        .section-alternate {
+            background: var(--bg-secondary);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-tagline {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(var(--primary-rgb), 0.2);
+        }
+        
+        .feature-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(var(--primary-rgb), 0.1);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .feature-card-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .feature-card-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Logos Section */
+        .logos-section {
+            padding: 60px;
+            background: white;
+        }
+        
+        .logos-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .logos-title {
+            font-size: 16px;
+            color: var(--text-tertiary);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .logo-item {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .logo-item:hover {
+            opacity: 1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: var(--space-13) 60px;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .cta-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            margin-bottom: 32px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .nav {
+                padding: 20px 40px;
+            }
+            
+            .hero {
+                padding: 140px 40px 80px;
+            }
+            
+            .section {
+                padding: 80px 40px;
+            }
+            
+            .hero-container {
+                gap: 60px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .nav {
+                padding: 20px 24px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-link {
+                display: none;
+            }
+            
+            .hero {
+                padding: 120px 24px 60px;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .section {
+                padding: 60px 24px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .footer {
+                padding: 40px 24px;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+            
+            .footer-links {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .btn-large {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .cta-title {
+                font-size: 36px;
+            }
+            
+            .logos-grid {
+                gap: 24px;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Icon mappings */
+        .icon-chart::before { content: "📊"; }
+        .icon-users::before { content: "👥"; }
+        .icon-bolt::before { content: "⚡"; }
+        .icon-check::before { content: "✅"; }
+        .icon-star::before { content: "⭐"; }
+        .icon-globe::before { content: "🌍"; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">ENC Nantes</a>
+        <div class="nav-links">
+            <a href="#programme" class="nav-link">Programme</a>
+            <a href="#opportunities" class="nav-link">Débouchés</a>
+            <a href="#pricing" class="nav-link">Tarifs</a>
+            <a href="#testimonials" class="nav-link">Témoignages</a>
+            <a href="#candidature" class="btn btn-primary">Candidater</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-on-scroll">
+                    <span class="hero-badge-dot"></span>
+                    <span class="hero-badge-text">Promo 2024 : 100% de réussite à l'examen</span>
+                </div>
+                
+                <h1 class="hero-title animate-on-scroll stagger-1">Lancez votre carrière en Commerce et Marketing à Nantes</h1>
+                
+                <p class="hero-subtitle animate-on-scroll stagger-2">Obtenez un diplôme d'État reconnu (BTS MCO) avec un encadrement d'excellence, pour 2x moins cher qu'une Business School.</p>
+                
+                <div class="hero-buttons animate-on-scroll stagger-3">
+                    <a href="#candidature" class="btn btn-primary btn-large">Réserver ma place</a>
+                    <a href="#brochure" class="btn btn-secondary btn-large">Télécharger la brochure</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual animate-on-scroll stagger-4">
+                <img src="https://www.enc-nantes.fr/images/stories/formations/bts-mco/etudiants-bts-mco-nantes.jpg" alt="Étudiants BTS MCO à Nantes" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="programme" class="section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-tagline">POURQUOI CHOISIR L'ENC ?</div>
+                <h2 class="section-title">L'alternative idéale entre la fac et l'école de commerce hors de prix</h2>
+                <p class="section-description">Nous formons des managers opérationnels prêts à l'emploi grâce à une pédagogie qui allie exigence scolaire et réalité du terrain.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll stagger-1">
+                    <div class="feature-card-icon icon-chart"></div>
+                    <h3 class="feature-card-title">Tarif ultra-compétitif</h3>
+                    <p class="feature-card-desc">Profitez d'une formation d'excellence à 2360€/an grâce à notre contrat avec l'État, contre 5000€+ ailleurs.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-2">
+                    <div class="feature-card-icon icon-users"></div>
+                    <h3 class="feature-card-title">Encadrement personnalisé</h3>
+                    <p class="feature-card-desc">Fini l'anonymat des amphithéâtres. Bénéficiez d'un suivi individuel pour maximiser votre réussite.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-3">
+                    <div class="feature-card-icon icon-bolt"></div>
+                    <h3 class="feature-card-title">Immersion professionnelle</h3>
+                    <p class="feature-card-desc">Cumulez 14 à 16 semaines de stage et réalisez de vraies missions commerciales en entreprise.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-4">
+                    <div class="feature-card-icon icon-check"></div>
+                    <h3 class="feature-card-title">Diplôme d'État reconnu</h3>
+                    <p class="feature-card-desc">Obtenez un vrai BTS (BAC+2) ouvrant les portes du marché du travail ou d'un Bachelor/Master.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-5">
+                    <div class="feature-card-icon icon-star"></div>
+                    <h3 class="feature-card-title">100% de réussite</h3>
+                    <p class="feature-card-desc">Rejoignez une filière qui a fait ses preuves. En 2024, tous nos étudiants ont obtenu leur diplôme.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-6">
+                    <div class="feature-card-icon icon-globe"></div>
+                    <h3 class="feature-card-title">Vie étudiante nantaise</h3>
+                    <p class="feature-card-desc">Étudiez au cœur de Nantes dans un campus dynamique et connecté au tissu économique local.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos Section -->
+    <section class="logos-section">
+        <div class="logos-container animate-on-scroll">
+            <div class="logos-title">Nos étudiants réalisent leurs stages chez les leaders du secteur</div>
+            <div class="logos-grid">
+                <div class="logo-item">Decathlon</div>
+                <div class="logo-item">Fnac</div>
+                <div class="logo-item">Galeries Lafayette</div>
+                <div class="logo-item">Boulanger</div>
+                <div class="logo-item">Leclerc</div>
+                <div class="logo-item">Leroy Merlin</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="candidature" class="cta-section">
+        <div class="cta-container animate-on-scroll">
+            <h2 class="cta-title">Votre avenir dans le commerce commence ici</h2>
+            <p class="cta-description">Les inscriptions pour la prochaine rentrée sont ouvertes. Ne laissez pas votre orientation au hasard sur Parcoursup.</p>
+            
+            <div class="cta-buttons">
+                <a href="#candidature" class="btn btn-primary btn-xl">Déposer mon dossier de candidature</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <a href="#" class="footer-logo">ENC Nantes</a>
+            <div class="footer-links">
+                <a href="#" class="footer-link">À propos</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Mentions légales</a>
+            </div>
+            <div class="footer-copyright">© 2025 ENC Nantes - Tous droits réservés</div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.9)';
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+        
+        // Initial page load
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.3s ease';
+    </script>
+</body>
+</html>
