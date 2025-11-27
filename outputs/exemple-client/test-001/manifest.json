@@ -1,0 +1,8 @@
+{
+  "client": "exemple-client",
+  "test_number": 1,
+  "generated_at": "2025-11-27T23:52:50.802906",
+  "brief_file": "briefs/exemple-client.yaml",
+  "theme": "light-minimal",
+  "output": "/home/runner/work/landing-page-factory/landing-page-factory/outputs/exemple-client/test-001/landing.html"
+}
