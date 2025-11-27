@@ -1,0 +1,73 @@
+project:
+  name: "copass-conseil-bilan"
+  lang: "fr"
+
+brand:
+  company_name: "Copass Conseil"
+  logo_url: "https://copass-conseil.com/wp-content/uploads/2021/01/Logo-Copass-Conseil.png"
+  colors:
+    primary: "#3B82F6"
+    secondary: "#ECF890"
+  fonts:
+    heading: "Playfair Display"
+    body: "Inter"
+
+content:
+  nav:
+    items:
+      - "Notre Méthode"
+      - "Financement CPF"
+      - "Témoignages"
+    cta_text: "Mon diagnostic offert"
+    cta_link: "#rdv"
+  
+  hero:
+    badge: "Dispositif 100% financé par votre CPF"
+    title: "Redonnez du sens à votre carrière sans rien payer"
+    subtitle: "Un accompagnement humain pour valider votre projet de reconversion. Financement intégral via Mon Compte Formation, sans avance de frais."
+    cta_primary:
+      text: "Réserver mon diagnostic gratuit"
+      link: "#rdv"
+    cta_secondary:
+      text: "Vérifier mon éligibilité"
+      link: "#eligibilite"
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+  
+  logos:
+    headline: "Organisme certifié et reconnu par l'État"
+    items:
+      - "Mon Compte Formation"
+      - "Qualiopi"
+      - "France Compétences"
+      - "France Travail"
+  
+  features:
+    tagline: "Pourquoi choisir Copass ?"
+    headline: "Un accompagnement sur-mesure, loin des plateformes robotisées"
+    description: "Nous transformons vos doutes en plan d'action concret grâce à une méthodologie rigoureuse et humaine."
+    items:
+      - icon: "check"
+        title: "Reste à charge 0€"
+        description: "Votre bilan est financé à 100% par votre CPF. Nous gérons pour vous les démarches administratives complexes."
+      - icon: "users"
+        title: "Psychologues Experts"
+        description: "Échangez avec de vrais humains qualifiés, pas des coachs autoproclamés. Une écoute bienveillante garantie."
+      - icon: "bolt"
+        title: "Résultats Rapides"
+        description: "En 24h, obtenez une vision claire : reconversion, formation ou évolution. Ne perdez plus de temps à hésiter."
+      - icon: "globe"
+        title: "Marseille ou Visio"
+        description: "Un accompagnement flexible qui s'adapte à votre vie de salarié ou de demandeur d'emploi, où que vous soyez."
+  
+  cta:
+    headline: "Ne restez plus seul(e) face à vos questions"
+    description: "Le premier échange de 15 minutes est totalement gratuit et sans engagement. Il nous permet de vérifier votre financement CPF."
+    button_text: "Je réserve mon appel découverte"
+    button_link: "#rdv"
+  
+  footer:
+    copyright: "© 2024 Copass Conseil. Tous droits réservés."
+
+seo:
+  title: "Bilan de Compétences Copass | 100% Financé CPF | Marseille & Visio"
+  description: "Donnez un nouvel élan à votre carrière avec Copass Conseil. Bilan de compétences sur-mesure, financé par le CPF. Accompagnement humain par des psychologues."
