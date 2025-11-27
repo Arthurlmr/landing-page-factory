@@ -1,0 +1,75 @@
+project:
+  name: "little-worker-landing"
+  lang: "fr"
+
+brand:
+  company_name: "Little Worker"
+  logo_url: "https://www.littleworker.fr/logo.png"
+  colors:
+    primary: "#003F3A"
+    secondary: "#C18523"
+  fonts:
+    heading: "Playfair Display"
+    body: "Lato"
+
+content:
+  nav:
+    items:
+      - "Rénover"
+      - "Trouver un bien"
+      - "Réalisations"
+      - "Nos garanties"
+    cta_text: "Estimer mon projet"
+    cta_link: "#estimation"
+  
+  hero:
+    badge: "Leader de la rénovation éco-responsable"
+    title: "Votre rénovation clé en main, prix et délais garantis"
+    subtitle: "Plus qu'une mise en relation : en tant que Contractant Général, nous portons l'entière responsabilité technique et juridique de votre chantier, de la conception aux finitions."
+    cta_primary:
+      text: "Démarrer mon projet"
+      link: "#signup"
+    cta_secondary:
+      text: "Voir nos réalisations"
+      link: "#portfolio"
+    image: "https://storage.googleapis.com/firecrawl-scrape-media/screenshot-b624c7c5-4e97-4c2c-a354-afc124e5c77f.png"
+  
+  logos:
+    headline: "Ils nous font confiance pour leurs travaux"
+    items:
+      - "Les Echos"
+      - "Le Monde"
+      - "Challenges"
+      - "B Corp"
+      - "FFB"
+  
+  features:
+    tagline: "L'EXCELLENCE OPÉRATIONNELLE"
+    headline: "Pourquoi confier votre bien à Little Worker ?"
+    description: "Fini le stress des artisans multiples. Nous centralisons la responsabilité pour vous offrir une rénovation sereine et valorisante."
+    items:
+      - icon: "check"
+        title: "Responsabilité Totale"
+        description: "Contrairement aux plateformes, nous garantissons contractuellement le prix final et la date de livraison. Zéro surprise."
+      - icon: "users"
+        title: "Un Seul Interlocuteur"
+        description: "Un chef de projet dédié pilote l'ensemble des corps de métier. Vous validez les étapes, nous gérons la complexité."
+      - icon: "bolt"
+        title: "Valorisation Verte"
+        description: "Boostez votre DPE et la valeur patrimoniale de votre bien grâce à notre expertise en rénovation énergétique."
+      - icon: "star"
+        title: "Design Sur-Mesure"
+        description: "Nos architectes d'intérieur conçoivent des espaces uniques alliant esthétique éditoriale et optimisation des surfaces."
+  
+  cta:
+    headline: "Concrétisez votre projet sans risque"
+    description: "Discutez de votre projet de rénovation ou d'achat avec nos experts et obtenez une première estimation budgétaire."
+    button_text: "Obtenir mon devis gratuit"
+    button_link: "#signup"
+  
+  footer:
+    copyright: "© 2025 Little Worker. Tous droits réservés."
+
+seo:
+  title: "Little Worker - Rénovation Clé en Main & Contractant Général"
+  description: "Confiez vos travaux à Little Worker. Prix et délais garantis, accompagnement complet de la conception à la livraison. Spécialiste de la rénovation énergétique."
