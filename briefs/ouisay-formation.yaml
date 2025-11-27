@@ -1,0 +1,76 @@
+project:
+  name: "ouisay-formation"
+  lang: "fr"
+
+brand:
+  company_name: "Ouisay"
+  logo_url: ""
+  colors:
+    primary: "#FF3AF6"
+    secondary: "#002E5B"
+  fonts:
+    heading: "Jost"
+    body: "Jost"
+
+content:
+  nav:
+    items:
+      - text: "La Formation"
+        link: "#features"
+      - text: "Financement CPF"
+        link: "#financing"
+      - text: "Témoignages"
+        link: "#reviews"
+    cta_text: "Demander un devis"
+    cta_link: "#contact"
+  
+  hero:
+    badge: "⭐ 4.9/5 sur Trustpilot - Organisme certifié Qualiopi"
+    title: "Maîtrisez l'anglais professionnel avec une formation 100% sur-mesure"
+    subtitle: "Cours individuels flexibles en visio ou en présentiel à Toulouse. Financez intégralement votre parcours via le CPF."
+    cta_primary:
+      text: "Vérifier mon éligibilité CPF"
+      link: "#eligibility"
+    cta_secondary:
+      text: "Découvrir nos offres"
+      link: "#programmes"
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
+  
+  logos:
+    headline: "Organisme certifié et reconnu"
+    items:
+      - "Qualiopi"
+      - "MonCompteFormation"
+      - "Trustpilot"
+      - "TopFormation"
+  
+  features:
+    tagline: "Pourquoi choisir Ouisay ?"
+    headline: "Une pédagogie adaptée à vos ambitions professionnelles"
+    description: "Ne perdez plus de temps avec des cours génériques. Nous créons le parcours qui correspond exactement à votre métier et vos contraintes."
+    items:
+      - icon: "check"
+        title: "100% Financable CPF"
+        description: "Certification Qualiopi garantie. Nous gérons pour vous les démarches administratives pour un financement sans reste à charge."
+      - icon: "users"
+        title: "Accompagnement Individuel"
+        description: "Un formateur dédié qui adapte le contenu à votre secteur d'activité et à votre niveau réel."
+      - icon: "globe"
+        title: "Flexibilité Totale"
+        description: "Choisissez le format qui vous convient : 100% distanciel ou en présentiel dans nos locaux à Toulouse."
+      - icon: "bolt"
+        title: "Progression Rapide"
+        description: "Des objectifs ciblés et des évaluations régulières pour booster votre employabilité en un temps record."
+  
+  cta:
+    headline: "Prêt à débloquer de nouvelles opportunités de carrière ?"
+    description: "Obtenez votre audit de niveau gratuit et un plan de formation personnalisé en moins de 2 minutes."
+    button_text: "Démarrer mon projet"
+    button_link: "#signup"
+  
+  footer:
+    copyright: "© 2024 Ouisay. Tous droits réservés."
+
+seo:
+  title: "Formation Anglais Professionnel Toulouse & En Ligne | Ouisay"
+  description: "Boostez votre carrière avec Ouisay. Formation d'anglais sur-mesure, éligible CPF, certifiée Qualiopi. Cours individuels à Toulouse ou à distance."
