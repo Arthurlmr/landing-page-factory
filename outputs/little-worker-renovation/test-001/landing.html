@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Worker - Rénovation d'appartement clé en main garantie</title>
+    <meta name="description" content="Service expert de rénovation immobilière. Interlocuteur unique, garantie décennale et budget respecté. Interventions à Paris, Lyon, Bordeaux et Nantes.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C18523;
+            --primary-rgb: 193, 133, 35;
+            --primary-light: #D4962B;
+            --secondary: #003F3A;
+            --secondary-rgb: 0, 63, 58;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #f1f3f4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #ffffff;
+            --border-card: rgba(0, 0, 0, 0.08);
+            --border-card-hover: rgba(193, 133, 35, 0.2);
+            
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-tertiary: #718096;
+            --text-muted: #a0aec0;
+            
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-7: 32px;
+            --space-8: 40px;
+            --space-9: 48px;
+            --space-10: 60px;
+            --space-11: 80px;
+            --space-12: 100px;
+            --space-13: 120px;
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            --radius-3xl: 24px;
+            --radius-full: 100px;
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.15);
+            
+            --shadow-primary: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-primary-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-10);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-10);
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding: var(--space-5) 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-10);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-logo img {
+            height: 32px;
+            margin-right: var(--space-3);
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Buttons */
+        .btn {
+            border: none;
+            padding: 12px 28px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-hover);
+        }
+        
+        .btn-secondary {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .btn-large {
+            padding: 18px 36px;
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .btn-xl {
+            padding: 20px 48px;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            padding-top: 140px;
+            padding-bottom: var(--space-13);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-10);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-11);
+            align-items: center;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(var(--primary-rgb), 0.08);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+        
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            letter-spacing: -2px;
+        }
+        
+        .hero-title .gradient {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-8);
+            max-width: 500px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-11);
+        }
+        
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Logos Section */
+        .logos-section {
+            padding: var(--space-11) 0;
+            background: var(--bg-primary);
+        }
+        
+        .logos-title {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-8);
+        }
+        
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .logo-item {
+            text-align: center;
+            padding: var(--space-6) var(--space-4);
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: var(--space-13) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-11);
+        }
+        
+        .section-tagline {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-4);
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            letter-spacing: -1px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+        }
+        
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--border-card-hover);
+        }
+        
+        .feature-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(var(--primary-rgb), 0.1);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-6);
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .feature-card-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .feature-card-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: var(--space-13) 0;
+            background: var(--bg-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--space-10);
+        }
+        
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            letter-spacing: -1px;
+        }
+        
+        .cta-title .gradient {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-8);
+        }
+        
+        .cta-buttons {
+            margin-bottom: var(--space-8);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--space-11) 0 var(--space-8) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-10);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: var(--space-7);
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes pulse-dot {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .nav-container {
+                padding: 0 var(--space-6);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-10);
+                padding: 0 var(--space-6);
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 42px;
+            }
+            
+            .hero-visual {
+                height: 300px;
+            }
+            
+            .section-container {
+                padding: 0 var(--space-6);
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+            
+            .logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .cta-container {
+                padding: 0 var(--space-6);
+            }
+            
+            .cta-title {
+                font-size: 36px;
+            }
+            
+            .footer-container {
+                padding: 0 var(--space-6);
+                flex-direction: column;
+                gap: var(--space-6);
+                text-align: center;
+            }
+            
+            .footer-links {
+                gap: var(--space-4);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero {
+                padding-top: 120px;
+                padding-bottom: var(--space-11);
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .cta-title {
+                font-size: 28px;
+            }
+            
+            .feature-card {
+                padding: var(--space-6);
+            }
+            
+            .logos-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="https://www.littleworker.fr/wp-content/themes/littleworker/assets/img/logo.svg" alt="Little Worker">
+                Little Worker
+            </a>
+            <div class="nav-links">
+                <a href="#portfolio" class="nav-link">Réalisations</a>
+                <a href="#features" class="nav-link">Concept</a>
+                <a href="#zones" class="nav-link">Zones d'intervention</a>
+                <a href="#testimonials" class="nav-link">Témoignages</a>
+                <a href="#devis" class="btn btn-primary">Obtenir un devis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-on-scroll">
+                    <span class="hero-badge-dot"></span>
+                    <span class="hero-badge-text">Rénovation immobilière clé en main</span>
+                </div>
+                
+                <h1 class="hero-title animate-on-scroll stagger-1">
+                    Rénovez votre appartement <span class="gradient">en toute sérénité</span> et sans retard
+                </h1>
+                
+                <p class="hero-description animate-on-scroll stagger-2">
+                    Un accompagnement complet de la conception aux travaux. Plus de 200 chantiers livrés avec succès à Paris, Lyon, Bordeaux et Nantes.
+                </p>
+                
+                <div class="hero-buttons animate-on-scroll stagger-3">
+                    <a href="#devis" class="btn btn-primary btn-large">Estimer mon projet</a>
+                    <a href="#portfolio" class="btn btn-secondary btn-large">Voir nos réalisations</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual animate-on-scroll stagger-4">
+                <img src="https://images.unsplash.com/photo-1484154218962-a1c002085d2f?auto=format&fit=crop&q=80" alt="Rénovation appartement" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos Section -->
+    <section class="logos-section">
+        <div class="section-container">
+            <h3 class="logos-title animate-on-scroll">Déjà plus de 200 projets livrés dans vos villes</h3>
+            <div class="logos-grid">
+                <div class="logo-item animate-on-scroll stagger-1">Paris</div>
+                <div class="logo-item animate-on-scroll stagger-2">Lyon</div>
+                <div class="logo-item animate-on-scroll stagger-3">Bordeaux</div>
+                <div class="logo-item animate-on-scroll stagger-4">Nantes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-tagline">POURQUOI NOUS CHOISIR</div>
+                <h2 class="section-title">La rénovation simplifiée, sans les mauvaises surprises</h2>
+                <p class="section-description">
+                    Nous transformons l'expérience des travaux grâce à une gestion rigoureuse, transparente et sécurisée.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll stagger-1">
+                    <div class="feature-card-icon">👥</div>
+                    <h3 class="feature-card-title">Interlocuteur unique dédié</h3>
+                    <p class="feature-card-desc">
+                        Un pilote de chantier gère tout pour vous : coordination des artisans, planning et conformité technique.
+                    </p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-2">
+                    <div class="feature-card-icon">✓</div>
+                    <h3 class="feature-card-title">Budget maîtrisé et transparent</h3>
+                    <p class="feature-card-desc">
+                        Des devis clairs de 5 000€ à 20 000€+. Le prix signé est le prix final, sans coûts cachés.
+                    </p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-3">
+                    <div class="feature-card-icon">🔒</div>
+                    <h3 class="feature-card-title">Garantie décennale incluse</h3>
+                    <p class="feature-card-desc">
+                        Tous nos travaux sont couverts par une assurance décennale à jour pour votre totale tranquillité.
+                    </p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-4">
+                    <div class="feature-card-icon">🔍</div>
+                    <h3 class="feature-card-title">Audit et diagnostic expert</h3>
+                    <p class="feature-card-desc">
+                        Analyse technique approfondie avant travaux pour optimiser votre espace et sécuriser le projet.
+                    </p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-5">
+                    <div class="feature-card-icon">⭐</div>
+                    <h3 class="feature-card-title">Artisans rigoureusement sélectionnés</h3>
+                    <p class="feature-card-desc">
+                        Nous ne travaillons qu'avec des professionnels testés et approuvés pour la qualité de leurs finitions.
+                    </p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-6">
+                    <div class="feature-card-icon">🔄</div>
+                    <h3 class="feature-card-title">Suivi de chantier régulier</h3>
+                    <p class="feature-card-desc">
+                        Restez informé de l'avancée des travaux avec des points d'étape clairs et réguliers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="devis" class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title animate-on-scroll">
+                Prêt à <span class="gradient">transformer</span> votre intérieur ?
+            </h2>
+            <p class="cta-description animate-on-scroll stagger-1">
+                Recevez une estimation précise pour votre projet de rénovation à Paris, Lyon, Bordeaux ou Nantes.
+            </p>
+            
+            <div class="cta-buttons animate-on-scroll stagger-2">
+                <a href="#devis" class="btn btn-primary btn-xl">Lancer mon projet maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <a href="#" class="footer-logo">Little Worker</a>
+            <div class="footer-links">
+                <a href="#" class="footer-link">À propos</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Mentions légales</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Little Worker. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.9)';
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
