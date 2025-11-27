@@ -1,0 +1,63 @@
+project:
+  name: "ouisay-formation-anglais"
+  lang: "fr"
+
+brand:
+  company_name: "Oui Say"
+  logo_url: ""
+  colors:
+    primary: "#002E5B"
+    secondary: "#D91B65"
+  fonts:
+    heading: "Prata"
+    body: "Jost"
+
+content:
+  nav:
+    items: ["Notre Méthode", "Entreprises", "Financement", "Contact"]
+    cta_text: "Devis Express"
+    cta_link: "#contact"
+  
+  hero:
+    badge: "Formation éligible CPF & OPCO"
+    title: "Transformez l'anglais de vos équipes en levier de performance"
+    subtitle: "Sortez du scolaire. Formez vos collaborateurs grâce à la simulation d'entreprise immersive pour des résultats opérationnels immédiats."
+    cta_primary:
+      text: "Demander un audit gratuit"
+      link: "#audit"
+    cta_secondary:
+      text: "Découvrir la méthode"
+      link: "#method"
+    image: "https://storage.googleapis.com/firecrawl-scrape-media/screenshot-0b0b4524-7a17-4ad0-b9fd-e262a4a86bd7.png?GoogleAccessId=scrape-bucket-accessor%40firecrawl.iam.gserviceaccount.com&Expires=1764805124&Signature=XtGzlRAVtec31BwHMfNrjfdzSCNA7pURhauo6wmdLTfRdYPAoDAY8%2FupLHZya2Col6KTBJdZaltxKW9qi%2FQA9QLJ3EOCWnserAWYO6k4cg1PNeQES2ls%2Fyj625mlXSy3tsubC87dUsCSLc7oekFa2o0WFM%2F8EYqybWe5klEDrB6bLdDl6%2BIA4JwxVz9%2BwqXgFJcZrf9dh%2F4ynTAJKwrK9ljQtm%2FG3Mt8dCWQRNeykiU6LB4JEZaGt8uERPUQ1D3yqZm4HllB0iGFiWBh%2F1PuxcITGC9iUHJuoFHtKbiPREqDGdvIfKxmnMTQkUJkBI5KxtY1cB5a8NYzL4oVc9IFxA%3D%3D"
+  
+  logos:
+    headline: "Une méthode approuvée par les responsables formation"
+    items: []
+  
+  features:
+    tagline: "MÉTHODE SUPSILON"
+    headline: "Pourquoi vos collaborateurs vont enfin progresser"
+    description: "Une approche pragmatique qui brise la barrière entre l'apprentissage théorique et la réalité du terrain en entreprise."
+    items:
+      - icon: "users"
+        title: "Immersion Business Totale"
+        description: "Fini les cours magistraux. Vos équipes apprennent via des jeux de rôle et scénarios d'entreprise concrets (Supsilon)."
+      - icon: "bolt"
+        title: "Compétences Opérationnelles"
+        description: "Négociation, emailing, réunions : nous ciblons uniquement les savoirs directement rentables pour votre activité."
+      - icon: "check"
+        title: "Zéro charge administrative"
+        description: "Nous gérons l'intégralité des dossiers de financement (CPF, OPCO) pour simplifier la vie de vos RH."
+  
+  cta:
+    headline: "Évaluez le niveau de vos équipes gratuitement"
+    description: "Réservez un audit linguistique offert pour définir le plan de formation sur-mesure de votre entreprise."
+    button_text: "Démarrer l'audit maintenant"
+    button_link: "#audit"
+  
+  footer:
+    copyright: "© 2024 Oui Say. Tous droits réservés."
+
+seo:
+  title: "Formation Anglais Entreprise - Méthode Immersive & ROI | Oui Say"
+  description: "Boostez l'anglais professionnel de vos équipes. Formation éligible CPF/OPCO basée sur la simulation d'entreprise. Audit gratuit et devis rapide."
