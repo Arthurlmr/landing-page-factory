@@ -1,0 +1,74 @@
+project:
+  name: "join-iad-recrutement"
+  lang: "fr"
+
+brand:
+  company_name: "IAD France"
+  logo_url: "https://www.join-iad.fr/wp-content/themes/iad-join/assets/images/logo-iad.svg"
+  colors:
+    primary: "#00B4EC"
+    secondary: "#0F6E94"
+  fonts:
+    heading: "Montserrat"
+    body: "Montserrat"
+
+content:
+  nav:
+    items:
+      - "Le Modèle"
+      - "Formation"
+      - "Rémunération"
+      - "Témoignages"
+    cta_text: "Devenir conseiller"
+    cta_link: "#inscription"
+  
+  hero:
+    badge: "Réseau immobilier n°1 en France • +20 000 entrepreneurs"
+    title: "Lancez votre activité immobilière indépendante sans les risques financiers"
+    subtitle: "Profitez d'un modèle clé en main : formation incluse, outils digitaux et accompagnement quotidien. Changez de vie dès maintenant sans investissement lourd."
+    cta_primary:
+      text: "Estimer mes revenus potentiels"
+      link: "#calculateur"
+    cta_secondary:
+      text: "Découvrir le modèle IAD"
+      link: "#modele"
+    image: "https://storage.googleapis.com/firecrawl-scrape-media/screenshot-66c8ebf9-4cae-4fb8-9e03-2a89d03cd0c4.png"
+  
+  logos:
+    headline: "Ils parlent de notre réussite et de notre modèle"
+    items:
+      - "Capital"
+      - "Les Echos"
+      - "Le Figaro"
+      - "BFM Business"
+  
+  features:
+    tagline: "Pourquoi rejoindre IAD ?"
+    headline: "Tout ce qu'il vous faut pour réussir votre reconversion"
+    description: "Nous avons supprimé les barrières à l'entrée de l'immobilier traditionnel. Plus besoin de local, ni de diplôme préalable."
+    items:
+      - icon: "chart"
+        title: "Rémunération non plafonnée"
+        description: "Gagnez jusqu'à 85% des honoraires sur vos ventes et touchez des commissions sur votre propre équipe."
+      - icon: "users"
+        title: "Formation et Coaching"
+        description: "Ne soyez jamais seul. Un parrain vous accompagne et notre université en ligne vous forme à votre rythme."
+      - icon: "bolt"
+        title: "Outils performants"
+        description: "Pilotez toute votre activité, de la prospection à la signature, grâce à notre suite d'outils digitaux exclusifs."
+      - icon: "globe"
+        title: "Liberté totale"
+        description: "Gérez votre emploi du temps comme vous le souhaitez et travaillez d'où vous voulez, sans contrainte hiérarchique."
+  
+  cta:
+    headline: "Votre nouvelle vie commence ici"
+    description: "Rejoignez une communauté bienveillante de plus de 20 000 entrepreneurs qui ont osé franchir le pas."
+    button_text: "Je télécharge la brochure gratuite"
+    button_link: "#brochure"
+  
+  footer:
+    copyright: "© 2025 IAD France. Tous droits réservés."
+
+seo:
+  title: "Devenir Mandataire Immobilier Indépendant | Rejoindre IAD France"
+  description: "Reconversion immobilière : devenez agent commercial indépendant avec IAD. Formation offerte, rémunération attractive et outils professionnels inclus."
