@@ -1,0 +1,86 @@
+project:
+  name: "enc-nantes-bts-mco"
+  lang: "fr"
+
+brand:
+  company_name: "ENC Nantes"
+  logo_url: "https://www.enc-nantes.fr/images/logo-enc-nantes.png"
+  colors:
+    primary: "#1F2351"
+    secondary: "#CA223B"
+  fonts:
+    heading: "Oswald"
+    body: "Montserrat"
+
+content:
+  nav:
+    items:
+      - text: "Programme"
+        link: "#programme"
+      - text: "Débouchés"
+        link: "#opportunities"
+      - text: "Tarifs"
+        link: "#pricing"
+      - text: "Témoignages"
+        link: "#testimonials"
+    cta_text: "Candidater"
+    cta_link: "#candidature"
+
+  hero:
+    badge: "Promo 2024 : 100% de réussite à l'examen"
+    title: "Lancez votre carrière en Commerce et Marketing à Nantes"
+    subtitle: "Obtenez un diplôme d'État reconnu (BTS MCO) avec un encadrement d'excellence, pour 2x moins cher qu'une Business School."
+    cta_primary:
+      text: "Réserver ma place"
+      link: "#candidature"
+    cta_secondary:
+      text: "Télécharger la brochure"
+      link: "#brochure"
+    image: "https://www.enc-nantes.fr/images/stories/formations/bts-mco/etudiants-bts-mco-nantes.jpg"
+
+  logos:
+    headline: "Nos étudiants réalisent leurs stages chez les leaders du secteur"
+    items:
+      - "Decathlon"
+      - "Fnac"
+      - "Galeries Lafayette"
+      - "Boulanger"
+      - "Leclerc"
+      - "Leroy Merlin"
+
+  features:
+    tagline: "POURQUOI CHOISIR L'ENC ?"
+    headline: "L'alternative idéale entre la fac et l'école de commerce hors de prix"
+    description: "Nous formons des managers opérationnels prêts à l'emploi grâce à une pédagogie qui allie exigence scolaire et réalité du terrain."
+    items:
+      - icon: "chart"
+        title: "Tarif ultra-compétitif"
+        description: "Profitez d'une formation d'excellence à 2360€/an grâce à notre contrat avec l'État, contre 5000€+ ailleurs."
+      - icon: "users"
+        title: "Encadrement personnalisé"
+        description: "Fini l'anonymat des amphithéâtres. Bénéficiez d'un suivi individuel pour maximiser votre réussite."
+      - icon: "bolt"
+        title: "Immersion professionnelle"
+        description: "Cumulez 14 à 16 semaines de stage et réalisez de vraies missions commerciales en entreprise."
+      - icon: "check"
+        title: "Diplôme d'État reconnu"
+        description: "Obtenez un vrai BTS (BAC+2) ouvrant les portes du marché du travail ou d'un Bachelor/Master."
+      - icon: "star"
+        title: "100% de réussite"
+        description: "Rejoignez une filière qui a fait ses preuves. En 2024, tous nos étudiants ont obtenu leur diplôme."
+      - icon: "globe"
+        title: "Vie étudiante nantaise"
+        description: "Étudiez au cœur de Nantes dans un campus dynamique et connecté au tissu économique local."
+
+  cta:
+    headline: "Votre avenir dans le commerce commence ici"
+    description: "Les inscriptions pour la prochaine rentrée sont ouvertes. Ne laissez pas votre orientation au hasard sur Parcoursup."
+    button_text: "Déposer mon dossier de candidature"
+    button_link: "#candidature"
+
+  footer:
+    copyright: "© 2025 ENC Nantes - Tous droits réservés"
+
+seo:
+  title: "BTS MCO Nantes - Formation Commerce & Marketing | ENC"
+  description: "Intégrez le BTS Management Commercial Opérationnel de l'ENC Nantes. 100% de réussite, tarif accessible (2360€/an) et stages garantis. Candidatures ouvertes."
