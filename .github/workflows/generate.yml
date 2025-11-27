@@ -15,9 +15,6 @@ on:
         required: true
         default: ''
 
-permissions:
-  contents: write
-
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -41,10 +38,8 @@ jobs:
         id: find-briefs
         run: |
           if [ -n "${{ github.event.inputs.brief_file }}" ]; then
-            # Manual trigger
             echo "briefs=briefs/${{ github.event.inputs.brief_file }}" >> $GITHUB_OUTPUT
           else
-            # Auto trigger - find changed yaml files in briefs/
             CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'briefs/*.yaml' 'briefs/*.yml' | tr '\n' ' ')
             echo "briefs=$CHANGED" >> $GITHUB_OUTPUT
           fi
