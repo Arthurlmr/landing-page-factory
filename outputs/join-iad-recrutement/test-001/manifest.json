@@ -1,0 +1,8 @@
+{
+  "client": "join-iad-recrutement",
+  "test_number": 1,
+  "generated_at": "2025-11-27T08:07:39.287277",
+  "brief_file": "briefs/join-iad-recrutement.yaml",
+  "theme": "light-minimal",
+  "output": "/home/runner/work/landing-page-factory/landing-page-factory/outputs/join-iad-recrutement/test-001/landing.html"
+}
