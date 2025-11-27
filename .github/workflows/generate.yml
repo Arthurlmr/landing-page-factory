@@ -39,9 +39,14 @@ jobs:
         run: |
           if [ -n "${{ github.event.inputs.brief_file }}" ]; then
             echo "briefs=briefs/${{ github.event.inputs.brief_file }}" >> $GITHUB_OUTPUT
+            echo "client_name=${{ github.event.inputs.brief_file }}" | sed 's/.yaml//' | sed 's/.yml//' >> $GITHUB_OUTPUT
           else
             CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'briefs/*.yaml' 'briefs/*.yml' | tr '\n' ' ')
             echo "briefs=$CHANGED" >> $GITHUB_OUTPUT
+            # Extract client name from first changed file
+            FIRST=$(echo $CHANGED | awk '{print $1}')
+            CLIENT=$(basename "$FIRST" .yaml)
+            echo "client_name=$CLIENT" >> $GITHUB_OUTPUT
           fi
       
       - name: Generate landing pages
@@ -64,11 +69,45 @@ jobs:
           git diff --staged --quiet || git commit -m "🚀 Generated landing page(s)"
           git push
       
+      - name: Deploy to production
+        if: steps.find-briefs.outputs.client_name != ''
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          CLIENT="${{ steps.find-briefs.outputs.client_name }}"
+          
+          # Find the latest test folder for this client
+          LATEST_TEST=$(ls -d outputs/$CLIENT/test-* 2>/dev/null | sort -V | tail -1)
+          
+          if [ -z "$LATEST_TEST" ]; then
+            echo "No output found for client: $CLIENT"
+            exit 0
+          fi
+          
+          echo "Deploying: $LATEST_TEST/landing.html"
+          
+          # Clone production repo
+          git clone https://x-access-token:${DEPLOY_TOKEN}@github.com/Arthurlmr/anode_production.git /tmp/prod
+          
+          # Create client folder and copy file
+          mkdir -p /tmp/prod/anode/$CLIENT
+          cp $LATEST_TEST/landing.html /tmp/prod/anode/$CLIENT/index.html
+          
+          # Commit and push
+          cd /tmp/prod
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .
+          git diff --staged --quiet || git commit -m "🚀 Deploy: $CLIENT"
+          git push
+          
+          echo "✅ Deployed to: https://github.com/Arthurlmr/anode_production/tree/main/anode/$CLIENT"
+      
       - name: Send Slack notification
         if: env.SLACK_WEBHOOK_URL != ''
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           curl -X POST -H 'Content-type: application/json' \
-            --data '{"text":"✅ Landing page generated! Check outputs/ folder."}' \
+            --data '{"text":"✅ Landing page generated and deployed!"}' \
             $SLACK_WEBHOOK_URL
