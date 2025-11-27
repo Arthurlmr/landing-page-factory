@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Anglais Entreprise - Méthode Immersive & ROI | Oui Say</title>
+    <meta name="description" content="Boostez l'anglais professionnel de vos équipes. Formation éligible CPF/OPCO basée sur la simulation d'entreprise. Audit gratuit et devis rapide.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Prata:wght@400&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #002E5B;
+            --primary-rgb: 0, 46, 91;
+            --secondary: #D91B65;
+            --accent: #3b82f6;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #f1f3f4;
+            --bg-card: #ffffff;
+            
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-tertiary: #718096;
+            --text-muted: #a0aec0;
+            
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-7: 32px;
+            --space-8: 40px;
+            --space-9: 48px;
+            --space-10: 60px;
+            --space-11: 80px;
+            --space-12: 100px;
+            --space-13: 120px;
+            
+            --text-xs: 11px;
+            --text-sm: 13px;
+            --text-base: 15px;
+            --text-lg: 17px;
+            --text-xl: 20px;
+            --text-2xl: 24px;
+            --text-3xl: 32px;
+            --text-4xl: 40px;
+            --text-5xl: 48px;
+            --text-6xl: 56px;
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            --radius-3xl: 24px;
+            --radius-full: 100px;
+            
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            height: 80px;
+        }
+        
+        .nav-logo {
+            font-family: 'Prata', serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: var(--text-base);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            border: none;
+            padding: 12px 28px;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn-large {
+            padding: 18px 36px;
+            border-radius: var(--radius-xl);
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .btn-xl {
+            padding: 20px 48px;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 140px 60px 120px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(var(--primary-rgb), 0.08);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: pulse-dot 2s infinite;
+        }
+        
+        .hero-title {
+            font-family: 'Prata', serif;
+            font-size: 56px;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .hero-visual {
+            position: relative;
+        }
+        
+        .hero-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-2xl);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 60px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-family: 'Prata', serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-section {
+            background: var(--bg-secondary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(var(--primary-rgb), 0.2);
+        }
+        
+        .feature-card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(var(--primary-rgb), 0.1);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .feature-card-content h3 {
+            font-family: 'Prata', serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .feature-card-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        .cta-section {
+            background: var(--bg-primary);
+            padding: 120px 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: 'Prata', serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .cta-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            margin-bottom: 40px;
+        }
+        
+        .footer {
+            background: var(--text-primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Prata', serif;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        @media (max-width: 1200px) {
+            .nav {
+                padding: 20px 40px;
+            }
+            
+            .hero {
+                padding: 140px 40px 100px;
+            }
+            
+            .hero-container {
+                gap: 60px;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .section-container {
+                padding: 100px 40px;
+            }
+            
+            .section-title {
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav {
+                padding: 20px 24px;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 120px 24px 80px;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .section-container {
+                padding: 80px 24px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .feature-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px;
+            }
+            
+            .cta-section {
+                padding: 80px 24px;
+            }
+            
+            .cta-title {
+                font-size: 36px;
+            }
+            
+            .footer {
+                padding: 40px 24px;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .cta-title {
+                font-size: 28px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="#" class="nav-logo">Oui Say</a>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Notre Méthode</a>
+            <a href="#" class="nav-link">Entreprises</a>
+            <a href="#" class="nav-link">Financement</a>
+            <a href="#" class="nav-link">Contact</a>
+            <a href="#audit" class="btn btn-primary">Devis Express</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span class="hero-badge-text">Formation éligible CPF & OPCO</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Transformez l'anglais de vos équipes en <span class="gradient">levier de performance</span>
+                </h1>
+                
+                <p class="hero-description">Sortez du scolaire. Formez vos collaborateurs grâce à la simulation d'entreprise immersive pour des résultats opérationnels immédiats.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#audit" class="btn btn-primary btn-large">Demander un audit gratuit</a>
+                    <button class="btn btn-secondary btn-large">Découvrir la méthode</button>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <img src="https://storage.googleapis.com/firecrawl-scrape-media/screenshot-0b0b4524-7a17-4ad0-b9fd-e262a4a86bd7.png?GoogleAccessId=scrape-bucket-accessor%40firecrawl.iam.gserviceaccount.com&Expires=1764805124&Signature=XtGzlRAVtec31BwHMfNrjfdzSCNA7pURhauo6wmdLTfRdYPAoDAY8%2FupLHZya2Col6KTBJdZaltxKW9qi%2FQA9QLJ3EOCWnserAWYO6k4cg1PNeQES2ls%2Fyj625mlXSy3tsubC87dUsCSLc7oekFa2o0WFM%2F8EYqybWe5klEDrB6bLdDl6%2BIA4JwxVz9%2BwqXgFJcZrf9dh%2F4ynTAJKwrK9ljQtm%2FG3Mt8dCWQRNeykiU6LB4JEZaGt8uERPUQ1D3yqZm4HllB0iGFiWBh%2F1PuxcITGC9iUHJuoFHtKbiPREqDGdvIfKxmnMTQkUJkBI5KxtY1cB5a8NYzL4oVc9IFxA%3D%3D" alt="Formation anglais immersive">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <div style="background: rgba(var(--primary-rgb), 0.08); padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--primary); display: inline-block; margin-bottom: 24px;">
+                    MÉTHODE SUPSILON
+                </div>
+                <h2 class="section-title">
+                    Pourquoi vos collaborateurs vont <span class="gradient">enfin progresser</span>
+                </h2>
+                <p class="section-description">Une approche pragmatique qui brise la barrière entre l'apprentissage théorique et la réalité du terrain en entreprise.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll stagger-1">
+                    <div class="feature-card-icon">
+                        👥
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Immersion Business Totale</h3>
+                        <p>Fini les cours magistraux. Vos équipes apprennent via des jeux de rôle et scénarios d'entreprise concrets (Supsilon).</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-2">
+                    <div class="feature-card-icon">
+                        ⚡
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Compétences Opérationnelles</h3>
+                        <p>Négociation, emailing, réunions : nous ciblons uniquement les savoirs directement rentables pour votre activité.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card animate-on-scroll stagger-3">
+                    <div class="feature-card-icon">
+                        ✅
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Zéro charge administrative</h3>
+                        <p>Nous gérons l'intégralité des dossiers de financement (CPF, OPCO) pour simplifier la vie de vos RH.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="audit" class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title animate-on-scroll">
+                <span class="gradient">Évaluez le niveau</span> de vos équipes gratuitement
+            </h2>
+            <p class="cta-description animate-on-scroll">Réservez un audit linguistique offert pour définir le plan de formation sur-mesure de votre entreprise.</p>
+            
+            <div class="cta-buttons animate-on-scroll">
+                <a href="#audit" class="btn btn-primary btn-xl">Démarrer l'audit maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <a href="#" class="footer-logo">Oui Say</a>
+            <div class="footer-links">
+                <a href="#" class="footer-link">À propos</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Mentions légales</a>
+            </div>
+            <div class="footer-copyright">
+                © 2024 Oui Say. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some dynamic behavior to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
