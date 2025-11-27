@@ -197,7 +197,7 @@ def main():
     print(f"Génération du brief pour {client_name}...")
     
     response = client.messages.create(
-        model="claude-opus-4-5-20250514",
+        model="claude-sonnet-4-20250514",
         max_tokens=8192,
         messages=[{"role": "user", "content": prompt}]
     )
