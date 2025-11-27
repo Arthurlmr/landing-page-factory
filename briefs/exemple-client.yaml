@@ -1,0 +1,121 @@
+client: Exemple Digital Agency
+url_source: https://exemple.com
+generated_at: 2024-01-15T10:30:00Z
+
+design_system:
+  colors:
+    primary: "#ECF890"
+    accent: "#C7B5F3"
+    background: "#1A1B23"
+    text_primary: "#FAFAFA"
+    text_secondary: "#B8B8B8"
+  fonts:
+    heading: "Gasoek One"
+    body: "Poppins"
+    google_fonts_import: "https://fonts.googleapis.com/css2?family=Gasoek+One&family=Poppins:wght@300;400;500;600&display=swap"
+  border_radius:
+    buttons: "100px"
+    cards: "20px"
+  tone: "professional"
+
+creative_direction:
+  background_style: "gradient-mesh"
+  background_details: "Dégradé mesh fluide avec #1A1B23 dominant, touches subtiles de #C7B5F3 (10% opacité) et hints de #ECF890 (5% opacité) créant des formes organiques"
+  animation_level: "moderate"
+  visual_density: "balanced"
+  mood: "Expert, moderne, rassurant, dynamique"
+  inspiration_notes: "Style glassmorphism subtil sur les cards, effets de blur légers, micro-animations sur hover, gradient mesh en arrière-plan pour créer de la profondeur"
+
+structure:
+  - section: hero
+    headline: "Transformez vos visiteurs en clients qualifiés"
+    subheadline: "Agence marketing digital spécialisée TPE-PME. Stratégies personnalisées pour doubler votre taux de conversion."
+    cta_primary:
+      text: "Audit gratuit"
+      url: "#contact"
+    cta_secondary:
+      text: "Voir nos tarifs"
+      url: "#pricing"
+    visual_type: "gradient-shape"
+    
+  - section: social_proof
+    type: "stats"
+    headline: "150 entreprises nous font confiance"
+    items:
+      - "150+ clients accompagnés"
+      - "98% de satisfaction"
+    
+  - section: problem_solution
+    headline: "Votre site ne convertit pas assez ?"
+    problems:
+      - icon: "😞"
+        text: "Trafic qui ne se transforme pas en ventes"
+      - icon: "🎯"
+        text: "Ciblage publicitaire inefficace"
+      - icon: "📊"
+        text: "ROI marketing difficile à mesurer"
+    solutions:
+      - icon: "🚀"
+        text: "Optimisation conversion sur-mesure"
+      - icon: "🎯"
+        text: "Campagnes ultra-ciblées TPE-PME"
+      - icon: "📈"
+        text: "Reporting transparent et actionnable"
+        
+  - section: features
+    headline: "Notre méthode éprouvée"
+    subheadline: "Une approche structurée pour maximiser vos résultats"
+    layout: "grid-3"
+    items:
+      - icon: "🔍"
+        title: "Audit complet"
+        description: "Analyse approfondie de votre écosystème digital actuel"
+      - icon: "⚡"
+        title: "Optimisation"
+        description: "Améliorations techniques et UX pour booster les conversions"
+      - icon: "📊"
+        title: "Suivi performance"
+        description: "Monitoring continu et ajustements stratégiques"
+        
+  - section: cta_final
+    headline: "Prêt à doubler vos conversions ?"
+    subheadline: "Audit gratuit de votre site + recommandations personnalisées"
+    cta_text: "Demander mon audit"
+    form_fields: "email+name+phone"
+    
+  - section: footer
+    style: "minimal"
+    links:
+      - text: "Mentions légales"
+        url: "/mentions"
+      - text: "Contact"
+        url: "#contact"
+
+content:
+  company_name: "Exemple Digital Agency"
+  tagline: "Votre partenaire croissance digitale"
+  value_proposition: "Agence spécialisée en marketing digital pour TPE-PME avec une approche data-driven et des résultats mesurables"
+  services:
+    - "Optimisation conversion"
+    - "Stratégie digitale sur-mesure"
+  benefits:
+    - "ROI mesurable et transparent"
+    - "Accompagnement personnalisé TPE-PME"
+    - "Expertise technique et stratégique"
+  target_audience: "TPE-PME et startups"
+  differentiators:
+    - "150 clients accompagnés avec succès"
+    - "Taux de satisfaction 98%"
+    - "Tarifs accessibles dès 490€/mois"
+
+seo:
+  title: "Agence Marketing Digital TPE-PME | Conversion & Croissance"
+  description: "Spécialiste marketing digital pour TPE-PME. 150 clients, 98% satisfaction. Audit gratuit + stratégies sur-mesure dès 490€/mois."
+  
+notes_for_generator: |
+  Utiliser un gradient mesh avec #1A1B23 comme base, incorporer subtilement #C7B5F3 et #ECF890.
+  Cards avec effet glassmorphism léger (backdrop-blur + bordures subtiles).
+  Animations fade-in au scroll sur chaque section.
+  Hero avec forme géométrique abstraite intégrant les couleurs accent.
+  Boutons avec l'effet hover qui intensifie le contraste.
+  Police Gasoek One uniquement pour les titres H1-H2, Poppins pour tout le reste.
