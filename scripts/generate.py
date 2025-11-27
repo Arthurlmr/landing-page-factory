@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Landing Page Factory - Generation Script (with Streaming)
+Landing Page Factory - Single Page Generator
 
-This script reads a brief YAML file and generates multiple landing page
-variants using the Claude API with streaming for long requests.
+Workflow:
+1. n8n uploads brief to: briefs/{client-name}.yaml
+2. GitHub Action triggers on push
+3. Generates: outputs/{client-name}/test-{N}/landing.html
+4. Auto-increments test number if client folder exists
 
-Usage:
-    python generate.py briefs/todo/project-brief.yaml
+Cost: ~$0.30 per landing page (Claude API)
 """
 
 import os
@@ -21,8 +23,12 @@ from datetime import datetime
 # Configuration
 CLAUDE_MODEL = "claude-sonnet-4-20250514"
 MAX_TOKENS = 32000
-FACTORY_PATH = Path("factory")
-OUTPUT_PATH = Path("outputs")
+
+# Paths
+SCRIPT_DIR = Path(__file__).parent
+ROOT_DIR = SCRIPT_DIR.parent
+FACTORY_PATH = ROOT_DIR / "factory"
+OUTPUTS_PATH = ROOT_DIR / "outputs"
 
 
 def load_yaml(file_path: str) -> dict:
@@ -38,7 +44,7 @@ def load_file(file_path: Path) -> str:
 
 
 def load_factory_context() -> str:
-    """Load all factory files into a context string."""
+    """Load factory instructions."""
     context_parts = []
     
     # Load SKILL.md
@@ -56,18 +62,38 @@ def load_factory_context() -> str:
     if design_path.exists():
         context_parts.append(f"# design-system.md\n\n{load_file(design_path)}")
     
-    # Load all themes
-    themes_path = FACTORY_PATH / "themes"
-    if themes_path.exists():
-        for theme_file in themes_path.glob("*.json"):
-            theme_content = load_file(theme_file)
-            context_parts.append(f"# Theme: {theme_file.name}\n\n```json\n{theme_content}\n```")
+    # Load ONLY light-minimal theme
+    theme_path = FACTORY_PATH / "themes" / "light-minimal.json"
+    if theme_path.exists():
+        theme_content = load_file(theme_path)
+        context_parts.append(f"# Theme: light-minimal.json\n\n```json\n{theme_content}\n```")
     
     return "\n\n---\n\n".join(context_parts)
 
 
-def generate_landing_page(client: anthropic.Anthropic, brief: dict, theme: str, factory_context: str) -> str:
-    """Generate a single landing page variant using Claude with streaming."""
+def get_next_test_number(client_dir: Path) -> int:
+    """Get next test number for a client (test-001, test-002, etc.)."""
+    if not client_dir.exists():
+        return 1
+    
+    existing_tests = [d for d in client_dir.iterdir() if d.is_dir() and d.name.startswith("test-")]
+    if not existing_tests:
+        return 1
+    
+    # Extract numbers and find max
+    numbers = []
+    for test_dir in existing_tests:
+        try:
+            num = int(test_dir.name.replace("test-", ""))
+            numbers.append(num)
+        except ValueError:
+            continue
+    
+    return max(numbers) + 1 if numbers else 1
+
+
+def generate_landing_page(client: anthropic.Anthropic, brief: dict, factory_context: str) -> str:
+    """Generate landing page using Claude with streaming."""
     
     brief_yaml = yaml.dump(brief, allow_unicode=True, default_flow_style=False)
     
@@ -90,7 +116,7 @@ def generate_landing_page(client: anthropic.Anthropic, brief: dict, theme: str, 
 ## INSTRUCTIONS
 
 Génère une landing page HTML complète en utilisant:
-1. Le thème "{theme}" (applique toutes ses couleurs, fonts, effets)
+1. Le thème "light-minimal" (fond blanc, design épuré, ombres subtiles)
 2. La structure définie dans structure.md
 3. Les règles du design-system.md
 4. Tout le contenu du brief ci-dessus
@@ -103,6 +129,7 @@ IMPORTANT:
 - Le design doit être responsive (mobile-first)
 - Ajoute les animations scroll avec Intersection Observer
 - Le résultat doit être production-ready
+- Style LIGHT : fond blanc (#ffffff), textes gris foncé, accents avec la couleur primaire du client
 
 Réponds UNIQUEMENT avec le code HTML complet, sans explications ni markdown autour. Commence directement par <!DOCTYPE html>
 """
@@ -119,13 +146,12 @@ Réponds UNIQUEMENT avec le code HTML complet, sans explications ni markdown aut
     ) as stream:
         for text in stream.text_stream:
             response_text += text
-            # Print progress dots
             if len(response_text) % 1000 == 0:
                 print(".", end="", flush=True)
     
-    print()  # New line after progress dots
+    print()  # New line after progress
     
-    # Clean up if wrapped in markdown code blocks
+    # Clean up markdown wrappers if present
     if response_text.startswith("```html"):
         response_text = response_text[7:]
     if response_text.startswith("```"):
@@ -137,23 +163,27 @@ Réponds UNIQUEMENT avec le code HTML complet, sans explications ni markdown aut
 
 
 def process_brief(brief_path: str):
-    """Process a single brief file and generate all theme variants."""
+    """Process a brief and generate landing page."""
+    
+    brief_file = Path(brief_path)
+    client_name = brief_file.stem  # "ouisay.yaml" → "ouisay"
     
     print(f"\n{'='*60}")
     print(f"Processing: {brief_path}")
+    print(f"Client: {client_name}")
+    print(f"Theme: light-minimal")
     print(f"{'='*60}")
     
     # Load brief
     brief = load_yaml(brief_path)
-    project_name = brief.get('project', {}).get('name', 'unnamed')
-    themes = brief.get('preferences', {}).get('themes', ['modern-dark'])
     
-    print(f"Project: {project_name}")
-    print(f"Themes: {', '.join(themes)}")
+    # Determine output directory with versioning
+    client_dir = OUTPUTS_PATH / client_name
+    test_number = get_next_test_number(client_dir)
+    test_dir = client_dir / f"test-{test_number:03d}"
+    test_dir.mkdir(parents=True, exist_ok=True)
     
-    # Create output directory
-    output_dir = OUTPUT_PATH / project_name
-    output_dir.mkdir(parents=True, exist_ok=True)
+    print(f"Output: {test_dir}/landing.html")
     
     # Load factory context
     factory_context = load_factory_context()
@@ -163,61 +193,56 @@ def process_brief(brief_path: str):
         api_key=os.environ.get("ANTHROPIC_API_KEY")
     )
     
-    generated_files = []
+    # Generate landing page
+    print(f"\n→ Generating landing page...")
     
-    # Generate each theme variant
-    for theme in themes:
-        print(f"\n→ Generating {theme} variant...")
+    try:
+        html_content = generate_landing_page(client, brief, factory_context)
         
-        try:
-            html_content = generate_landing_page(client, brief, theme, factory_context)
-            
-            # Validate we got HTML
-            if not html_content.strip().startswith("<!DOCTYPE") and not html_content.strip().startswith("<html"):
-                # Try to find HTML in the response
-                doctype_pos = html_content.find("<!DOCTYPE")
-                if doctype_pos != -1:
-                    html_content = html_content[doctype_pos:]
-                else:
-                    html_pos = html_content.find("<html")
-                    if html_pos != -1:
-                        html_content = html_content[html_pos:]
-            
-            # Save file
-            output_file = output_dir / f"{project_name}-{theme}.html"
-            with open(output_file, 'w', encoding='utf-8') as f:
-                f.write(html_content)
-            
-            print(f"  ✓ Saved: {output_file}")
-            generated_files.append(str(output_file))
-            
-        except Exception as e:
-            print(f"  ✗ Error generating {theme}: {str(e)}")
-    
-    # Create manifest
-    manifest = {
-        "project": project_name,
-        "generated_at": datetime.now().isoformat(),
-        "brief_file": brief_path,
-        "themes": themes,
-        "files": generated_files
-    }
-    
-    manifest_file = output_dir / "manifest.json"
-    with open(manifest_file, 'w', encoding='utf-8') as f:
-        json.dump(manifest, f, indent=2)
-    
-    print(f"\n✓ Manifest saved: {manifest_file}")
-    print(f"✓ Generated {len(generated_files)} landing page(s)")
-    
-    return generated_files
+        # Validate HTML
+        if not html_content.strip().startswith("<!DOCTYPE") and not html_content.strip().startswith("<html"):
+            doctype_pos = html_content.find("<!DOCTYPE")
+            if doctype_pos != -1:
+                html_content = html_content[doctype_pos:]
+            else:
+                html_pos = html_content.find("<html")
+                if html_pos != -1:
+                    html_content = html_content[html_pos:]
+        
+        # Save landing page
+        output_file = test_dir / "landing.html"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        print(f"  ✓ Saved: {output_file}")
+        
+        # Save manifest
+        manifest = {
+            "client": client_name,
+            "test_number": test_number,
+            "generated_at": datetime.now().isoformat(),
+            "brief_file": str(brief_path),
+            "theme": "light-minimal",
+            "output": str(output_file)
+        }
+        
+        manifest_file = test_dir / "manifest.json"
+        with open(manifest_file, 'w', encoding='utf-8') as f:
+            json.dump(manifest, f, indent=2)
+        
+        print(f"  ✓ Manifest: {manifest_file}")
+        
+        return str(output_file)
+        
+    except Exception as e:
+        print(f"  ✗ Error: {str(e)}")
+        return None
 
 
 def main():
-    """Main entry point."""
-    
     if len(sys.argv) < 2:
-        print("Usage: python generate.py <brief1.yaml> [brief2.yaml] ...")
+        print("Usage: python generate.py briefs/{client}.yaml")
+        print("Example: python generate.py briefs/ouisay.yaml")
         sys.exit(1)
     
     # Check for API key
@@ -225,20 +250,20 @@ def main():
         print("Error: ANTHROPIC_API_KEY environment variable not set")
         sys.exit(1)
     
-    brief_files = sys.argv[1].split()
+    brief_path = sys.argv[1]
     
-    all_generated = []
+    if not os.path.exists(brief_path):
+        print(f"Error: Brief file not found: {brief_path}")
+        sys.exit(1)
     
-    for brief_file in brief_files:
-        brief_file = brief_file.strip()
-        if brief_file and os.path.exists(brief_file):
-            generated = process_brief(brief_file)
-            all_generated.extend(generated)
-        else:
-            print(f"Warning: Brief file not found: {brief_file}")
+    result = process_brief(brief_path)
     
     print(f"\n{'='*60}")
-    print(f"COMPLETE - Generated {len(all_generated)} total file(s)")
+    if result:
+        print(f"✓ SUCCESS - Landing page generated")
+        print(f"  {result}")
+    else:
+        print("✗ FAILED - See errors above")
     print(f"{'='*60}")
 
 

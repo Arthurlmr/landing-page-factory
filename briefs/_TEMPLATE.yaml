@@ -1,0 +1,169 @@
+# ============================================================
+# LANDING PAGE BRIEF - Template pour Gemini (n8n)
+# ============================================================
+# Ce fichier doit être généré par Gemini dans ton workflow n8n
+# Nom du fichier: {nom-du-client}.yaml (ex: ouisay.yaml)
+# ============================================================
+
+# PROJET
+project:
+  name: "nom-du-client"           # Slug sans espaces, minuscules
+  lang: "fr"                       # fr ou en
+
+# BRAND (depuis Firecrawl + analyse)
+brand:
+  company_name: "Nom de l'entreprise"
+  logo_url: "https://..."          # URL du logo (depuis Firecrawl)
+  favicon_url: "https://..."       # URL du favicon (optionnel)
+  
+  # Couleurs (depuis Firecrawl branding ou input utilisateur)
+  colors:
+    primary: "#3B82F6"             # Couleur principale (boutons, accents)
+    secondary: "#1E40AF"           # Couleur secondaire
+    accent: "#60A5FA"              # Couleur d'accent (optionnel)
+  
+  # Typographie
+  fonts:
+    heading: "Inter"               # Police des titres
+    body: "Inter"                  # Police du corps
+
+# CONTENU DE LA PAGE
+content:
+  
+  # ===== NAVIGATION =====
+  nav:
+    items:
+      - label: "Fonctionnalités"
+        link: "#features"
+      - label: "Avantages"
+        link: "#benefits"
+      - label: "Tarifs"
+        link: "#pricing"
+    cta_text: "Démarrer"
+    cta_link: "#signup"
+  
+  # ===== HERO SECTION =====
+  hero:
+    # Badge optionnel (ex: "Nouveau", "N°1 en France")
+    badge: "Nouveau"
+    badge_link: "#"
+    
+    # Titre principal - IMPACTANT, orienté bénéfice
+    title: "Titre principal accrocheur qui parle du bénéfice client"
+    
+    # Sous-titre - Explication en 1-2 phrases
+    subtitle: "Description claire de ce que fait le produit et pourquoi c'est important pour le visiteur."
+    
+    # Call-to-actions
+    cta_primary:
+      text: "Essai gratuit"
+      link: "#signup"
+    cta_secondary:
+      text: "Voir la démo"
+      link: "#demo"
+    
+    # Image/Screenshot (depuis Firecrawl ou fournie)
+    image: "https://..."
+    image_alt: "Screenshot de l'application"
+  
+  # ===== SOCIAL PROOF / LOGOS =====
+  logos:
+    headline: "Ils nous font confiance"
+    items:
+      - name: "Client 1"
+        url: "https://logo1.svg"
+      - name: "Client 2"
+        url: "https://logo2.svg"
+      # ... jusqu'à 5-6 logos
+  
+  # ===== PROBLÈMES (optionnel) =====
+  problems:
+    headline: "Les défis que vous rencontrez"
+    items:
+      - icon: "clock"              # clock, alert, x-circle, etc.
+        title: "Problème 1"
+        description: "Description du problème que le client rencontre."
+      - icon: "alert"
+        title: "Problème 2"
+        description: "Description du deuxième problème."
+      - icon: "x-circle"
+        title: "Problème 3"
+        description: "Description du troisième problème."
+  
+  # ===== SOLUTION =====
+  solution:
+    tagline: "Notre solution"
+    headline: "Comment nous résolvons vos problèmes"
+    description: "Explication de l'approche unique du produit."
+    
+    pillars:
+      - icon: "check"
+        title: "Pilier 1"
+        description: "Description courte."
+      - icon: "bolt"
+        title: "Pilier 2"
+        description: "Description courte."
+      - icon: "shield"
+        title: "Pilier 3"
+        description: "Description courte."
+  
+  # ===== FEATURES =====
+  features:
+    tagline: "Fonctionnalités"
+    headline: "Tout ce dont vous avez besoin"
+    description: "Une solution complète pour atteindre vos objectifs."
+    
+    items:
+      - icon: "cloud"              # cloud, lock, refresh, cog, bolt, globe, search, chart, users, star, check
+        title: "Feature 1"
+        description: "Description de la fonctionnalité et de son bénéfice pour l'utilisateur."
+      - icon: "lock"
+        title: "Feature 2"
+        description: "Description de la fonctionnalité."
+      - icon: "bolt"
+        title: "Feature 3"
+        description: "Description de la fonctionnalité."
+      - icon: "globe"
+        title: "Feature 4"
+        description: "Description de la fonctionnalité."
+      - icon: "chart"
+        title: "Feature 5"
+        description: "Description de la fonctionnalité."
+      - icon: "users"
+        title: "Feature 6"
+        description: "Description de la fonctionnalité."
+  
+  # ===== TÉMOIGNAGES (optionnel) =====
+  testimonials:
+    headline: "Ce que disent nos clients"
+    items:
+      - quote: "Témoignage du client sur son expérience avec le produit."
+        author: "Prénom Nom"
+        role: "Poste, Entreprise"
+        avatar: "https://..."      # URL photo (optionnel)
+      - quote: "Deuxième témoignage."
+        author: "Prénom Nom"
+        role: "Poste, Entreprise"
+  
+  # ===== CTA FINAL =====
+  cta:
+    headline: "Prêt à commencer ?"
+    description: "Rejoignez des milliers d'utilisateurs satisfaits."
+    button_text: "Démarrer gratuitement"
+    button_link: "#signup"
+    note: "Pas de carte bancaire requise"
+  
+  # ===== FOOTER =====
+  footer:
+    copyright: "© 2025 Nom Entreprise. Tous droits réservés."
+    links:
+      - label: "Mentions légales"
+        url: "/mentions-legales"
+      - label: "Confidentialité"
+        url: "/confidentialite"
+
+# ===== METADATA SEO =====
+seo:
+  title: "Nom Entreprise - Tagline courte"
+  description: "Description meta de 150-160 caractères pour le SEO."
+  og_image: "https://..."          # Image pour partage social
