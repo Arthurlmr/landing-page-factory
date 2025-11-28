@@ -1,0 +1,108 @@
+project:
+  name: "sindup-landing-page"
+  lang: "fr"
+
+brand:
+  company_name: "Sindup"
+  logo_url: "https://welcome.sindup.com/logo.png"
+  colors:
+    primary: "#F38000"
+    accent: "#212121"
+    background: "#FCFCFC"
+    text: "#212121"
+    secondary_bg: "#FEF2E5"
+  fonts:
+    heading: "Manrope"
+    body: "Manrope"
+    google_fonts_import: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+
+creative_direction:
+  background_style: "gradient-mesh"
+  background_details: "Fond épuré #FCFCFC avec des nappes subtiles de #FEF2E5 et une touche vibrante de #F38000 en haut à droite pour dynamiser le header sans nuire à la lisibilité."
+  animation_level: "moderate"
+  visual_density: "balanced"
+  mood: "Strategic, Clarity, Insightful, Tech-Forward"
+
+content:
+  nav:
+    items:
+      - text: "Plateforme"
+        link: "#features"
+      - text: "Expertise"
+        link: "#expertise"
+      - text: "Sécurité"
+        link: "#security"
+    cta_text: "Demander une démo"
+    cta_link: "#contact"
+
+  hero:
+    badge: "⭐ Taux de satisfaction client : 99,98%"
+    title: "Transformez le bruit du web en décisions stratégiques"
+    subtitle: "Centralisez 50 millions de sources et accédez à des insights qualifiés dès la première semaine. La solution de veille qui sépare le signal du bruit."
+    cta_primary:
+      text: "Voir la plateforme en action"
+      link: "#contact"
+    cta_secondary:
+      text: "Découvrir la méthodologie"
+      link: "#features"
+    visual_type: "gradient-shape"
+
+  social_proof:
+    type: "stats"
+    headline: "Une couverture mondiale pour une vision locale"
+    items:
+      - "50 Millions de sources analysées"
+      - "80 Langues couvertes"
+      - "Monitoring 24h/24 et 7j/7"
+      - "Hébergement données en France"
+
+  features:
+    tagline: "VOTRE AVANTAGE CONCURRENTIEL"
+    headline: "De la donnée brute au livrable décisionnel"
+    description: "Arrêtez de subir la surabondance d'informations. Notre technologie couplée à une expertise humaine vous donne une longueur d'avance."
+    layout: "grid-3"
+    items:
+      - icon: "globe"
+        title: "Captez tous les signaux faibles"
+        description: "Accédez à une couverture exhaustive de 50 millions de sources dans 80 langues pour ne manquer aucune opportunité ni menace."
+      - icon: "target"
+        title: "Recevez uniquement l'essentiel"
+        description: "Filtrez le bruit grâce à notre analyse algorithmique et humaine. Obtenez des insights prêts à être partagés à votre direction."
+      - icon: "users"
+        title: "Mobilisez vos équipes instantanément"
+        description: "Diffusez des livrables stratégiques clairs. Accompagnement dédié et formation inclus pour une adoption immédiate."
+
+  expertise:
+    headline: "Une sécurité sans compromis pour vos données stratégiques"
+    description: "Votre veille est sensible. Notre infrastructure est blindée."
+    layout: "cards"
+    items:
+      - icon: "shield"
+        title: "Souveraineté des données"
+        description: "Serveurs hébergés exclusivement en France. Centre de données conforme aux normes les plus strictes."
+      - icon: "lock"
+        title: "Protection maximale"
+        description: "Contrôles de sécurité applicative, sauvegardes quotidiennes et accès via protocole HTTPS certifié SSL."
+
+  cta_final:
+    headline: "Prenez de meilleures décisions dès la semaine prochaine"
+    description: "Déployez votre veille stratégique avec un accompagnement sur-mesure. Audit et paramétrage inclus."
+    button_text: "Programmer ma démo personnalisée"
+    button_link: "#contact"
+    form_fields: "email+name+company"
+
+  footer:
+    style: "standard"
+    copyright: "© 2025 Sindup. Tous droits réservés."
+
+seo:
+  title: "Sindup - Solution de Veille Stratégique et Intelligence Économique"
+  description: "Transformez l'information en décision stratégique. Plateforme de veille SaaS sécurisée, 50M de sources, analyse humaine et IA. Demandez votre démo."
+
+notes_for_generator: |
+  Utiliser la police Manrope pour tous les textes.
+  Le bouton principal doit utiliser la couleur #F38000 avec un texte blanc et un léger border-radius (moderne).
+  Les icônes doivent être de style 'outline' mais avec un trait assez épais (2px) pour matcher le sérieux du B2B.
+  Le fond de la section Hero doit utiliser le gradient mesh subtil défini.
+  Les cartes "Features" doivent avoir un fond blanc, une ombre portée très légère (box-shadow) et une bordure gauche colorée en #F38000 au survol.
+  Le badge dans le Hero doit avoir un fond #FEF2E5 et un texte #F38000.
