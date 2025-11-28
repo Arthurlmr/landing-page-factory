@@ -1,0 +1,8 @@
+{
+  "client": "sindup-landing-page",
+  "test_number": 1,
+  "generated_at": "2025-11-28T09:10:31.296601",
+  "brief_file": "briefs/sindup-landing-page.yaml",
+  "theme": "light-minimal",
+  "output": "/home/runner/work/landing-page-factory/landing-page-factory/outputs/sindup-landing-page/test-001/landing.html"
+}
